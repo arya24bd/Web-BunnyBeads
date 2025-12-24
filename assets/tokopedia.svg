@@ -1,8 +1,25 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" aria-hidden="true">
-  <rect width="64" height="64" rx="10" fill="#00AA44" />
-  <g transform="translate(8,8) scale(0.75)">
-    <path d="M24 4c-6.627 0-12 5.373-12 12 0 5.333 2.667 9.333 6 12 1.333 1 3.333 2.667 3.333 4.667v6h3.333v-6c0-2 2.667-3.333 4-4.667 3.333-2.667 6-6.667 6-12 0-6.627-5.373-12-12-12z" fill="#ffffff"/>
-    <circle cx="16" cy="12" r="2" fill="#00AA44"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
+  <!-- Tokopedia owl bag with stroke -->
+  <g transform="translate(25, 25) scale(0.9)">
+    <!-- bag stroke outline -->
+    <path d="M 30 20 L 30 95 Q 30 110 45 110 L 105 110 Q 120 110 120 95 L 120 40 Q 120 20 100 20 Q 80 20 80 40 L 80 20 Q 80 5 60 5 Q 40 5 40 20 Z" 
+          fill="#00AA44" stroke="#333" stroke-width="8" stroke-linejoin="round"/>
+    <!-- handle -->
+    <path d="M 50 20 Q 80 0 110 20" stroke="#333" stroke-width="8" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- left eye white -->
+    <circle cx="55" cy="55" r="22" fill="white" stroke="#333" stroke-width="4"/>
+    <!-- left eye pupil -->
+    <circle cx="55" cy="55" r="14" fill="#000"/>
+    <!-- left eye shine -->
+    <circle cx="59" cy="51" r="5" fill="white"/>
+    <!-- right eye white -->
+    <circle cx="95" cy="55" r="22" fill="white" stroke="#333" stroke-width="4"/>
+    <!-- right eye pupil -->
+    <circle cx="95" cy="55" r="14" fill="#000"/>
+    <!-- right eye shine -->
+    <circle cx="99" cy="51" r="5" fill="white"/>
+    <!-- beak -->
+    <path d="M 75 75 L 70 85 L 80 85 Z" fill="#FFB800" stroke="#333" stroke-width="2" stroke-linejoin="round"/>
   </g>
 </svg>
 
