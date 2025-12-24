@@ -1006,6 +1006,58 @@ img {
   display: block;
 }
 
+/* Footer social improvements: brand colors, hover, sizing and responsive tweaks */
+.social-media {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.social-media h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: #f9a8d4;
+  font-weight: 600;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  align-items: center;
+}
+
+.social-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  color: white;
+  transition: transform 0.22s ease, box-shadow 0.22s ease, opacity 0.22s ease;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.social-icon img { width: 24px; height: 24px; }
+
+.social-icon:hover { transform: translateY(-6px) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
+
+.social-icon.shopee { background: linear-gradient(135deg, #ee4d2d 0%, #f4511e 100%); }
+.social-icon.tokopedia { background: linear-gradient(135deg, #00aa44 0%, #00c853 100%); }
+.social-icon.tiktok { background: linear-gradient(135deg, #010101 0%, #00f2ea 50%, #ff2d55 100%); }
+.social-icon.whatsapp { background: linear-gradient(135deg, #25D366 0%, #128C7E 100%); }
+.social-icon.instagram { background: radial-gradient(circle at 30% 30%, #feda75, #fa7e1e 30%, #d62976 55%, #962fbf 75%, #4f5bd5 100%); }
+
+/* Smaller footprint on very small screens */
+@media (max-width: 480px) {
+  .social-links { gap: 0.6rem; }
+  .social-icon { width: 40px; height: 40px; }
+  .social-icon img { width: 20px; height: 20px; }
+}
+
 .social-icon.shopee {
   background: linear-gradient(135deg, #ee4d2d 0%, #f4511e 100%);
 }
