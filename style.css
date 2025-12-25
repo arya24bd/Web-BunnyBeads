@@ -11,7 +11,6 @@ html {
 
 body {
   font-family: "Poppins", system-ui, -apple-system, sans-serif;
-  /* Background global halaman (di luar Hero) */
   background: linear-gradient(135deg, #ffd6eb 0%, #fef4fb 25%, #f3e8ff 60%, #ffffff 100%);
   background-attachment: fixed;
   color: #1f1f2e;
@@ -22,6 +21,7 @@ body {
 img {
   max-width: 100%;
   display: block;
+  border: none; /* Memastikan tidak ada border bawaan */
 }
 
 .container {
@@ -631,8 +631,9 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (FINAL CLEAN VERSION) --- */
-/* Desain: Lingkaran Putih, Logo Asli. Solusi untuk gambar JPG/Non-Transparan */
+/* --- Footer (FINAL FIX: SOLID WHITE ICONS ON GRADIENT) --- */
+/* Solusi ini mengubah logo apapun (termasuk JPG berlatar putih) menjadi putih solid */
+/* agar terlihat bersih di atas background gradasi warna-warni */
 
 .footer {
   padding: 50px 0 20px;
@@ -677,7 +678,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Lingkaran Wadah Logo */
+/* Lingkaran Wadah Logo (Background Gradasi KEMBALI) */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -686,32 +687,32 @@ img {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  
-  /* Background PUTIH agar menyatu dengan kotak putih pada gambar */
-  background: #ffffff; 
-  
-  /* Shadow lembut */
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  border: 2px solid transparent; /* Border transparan untuk efek hover */
+  border: 2px solid transparent;
   transition: all 0.3s ease;
   overflow: hidden;
+  /* Hapus background putih polos */
 }
 
-/* Tampilkan Logo Asli */
+/* Gambar Logo DIUBAH JADI PUTIH SOLID */
 .icon-circle img {
-  width: 60%; 
-  height: 60%;
+  width: 55%; /* Ukuran sedikit lebih kecil agar rapi */
+  height: 55%;
   object-fit: contain;
-  /* Hapus filter agar warna asli logo muncul */
-  filter: none; 
-  mix-blend-mode: normal;
+  /* FILTER PENTING: Mengubah gambar menjadi putih total */
+  filter: brightness(0) invert(1); 
+  -webkit-filter: brightness(0) invert(1);
+  border: none !important;
+  box-shadow: none !important;
 }
 
-/* Efek Hover: Border Warna Pink */
-.social-icon:hover .icon-circle {
-  border-color: #f471b9;
-  box-shadow: 0 8px 20px rgba(244, 113, 185, 0.4);
-}
+/* Warna Gradient Background (KEMBALI DIADAKAN) */
+.social-icon.shopee .icon-circle { background: linear-gradient(135deg, #ee4d2d, #ff7337); }
+.social-icon.tokopedia .icon-circle { background: linear-gradient(135deg, #00aa5b, #42d686); }
+.social-icon.tiktok .icon-circle { background: linear-gradient(135deg, #000000, #25f4ee); }
+.social-icon.whatsapp .icon-circle { background: linear-gradient(135deg, #25d366, #4ceb85); }
+.social-icon.instagram .icon-circle { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+
 
 /* Teks Label */
 .social-label {
