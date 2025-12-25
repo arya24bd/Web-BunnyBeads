@@ -262,9 +262,11 @@ img {
 
 .hero-badges {
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
+  width: 100%;
+  margin-top: 1.25rem;
 }
 
 .hero-badges span {
