@@ -101,6 +101,7 @@ ul {
   background-image: url("assets/hero-bg.png");
   background-size: cover;
   background-position: center;
+  backdrop-filter: blur(3px);
 }
 
 .hero-inner {
