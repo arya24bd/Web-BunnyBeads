@@ -994,10 +994,9 @@ img {
 }
 
 .social-icon svg {
-  width: 60%;
-  height: 60%;
-  display: block;
-  fill: white;
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
 }
 
 .social-icon img {
