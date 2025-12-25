@@ -1030,8 +1030,11 @@ img {
 }
 
 .social-icon {
-  display: inline-grid;
-  place-items: center;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  align-items: center;
+  justify-content: center;
   width: 48px;
   height: 48px;
   border-radius: 50%;
@@ -1042,6 +1045,16 @@ img {
 }
 
 .social-icon img { width: 24px; height: 24px; object-fit: contain; }
+
+.social-label {
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1;
+  color: rgba(249,168,212,0.95);
+  font-weight: 600;
+  text-align: center;
+  margin: 0;
+}
 
 .social-icon:hover { transform: translateY(-6px) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
 
@@ -1056,6 +1069,7 @@ img {
   .social-links { gap: 0.6rem; }
   .social-icon { width: 40px; height: 40px; }
   .social-icon img { width: 20px; height: 20px; }
+  .social-label { font-size: 0.65rem; }
 }
 
 .social-icon.shopee {
