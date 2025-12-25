@@ -82,18 +82,18 @@ img {
   position: sticky;
   top: 0;
   z-index: 100;
-  backdrop-filter: blur(14px);
-  background: rgba(255, 255, 255, 0.85);
-  border-bottom: 1px solid rgba(255, 182, 193, 0.4);
-  box-shadow: 0 8px 32px rgba(248, 113, 165, 0.05);
-  animation: slideInDown 0.6s ease-out;
+  backdrop-filter: blur(12px);
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.82));
+  border-bottom: 1px solid rgba(0,0,0,0.04);
+  box-shadow: 0 6px 30px rgba(15,23,42,0.06);
+  animation: slideInDown 0.5s ease-out;
 }
 
 .nav-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1rem 0;
+  padding: 0.9rem 0;
 }
 
 .logo {
@@ -225,6 +225,7 @@ img {
   text-decoration: none;
   transition: all 0.3s ease;
   cursor: pointer;
+  padding-left: 0.25rem;
   border: none;
   font-size: 0.95rem;
 }
@@ -691,6 +692,7 @@ img {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
+  display: inline-block;
   width: 85px;
   transition: transform 0.3s ease;
 }
