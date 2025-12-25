@@ -611,7 +611,7 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (FINAL FIXED VERSION) --- */
+/* --- Footer (FINAL WHITE ICON VERSION) --- */
 .footer {
   padding: 50px 0 20px;
   background: #0f172a;
@@ -638,16 +638,16 @@ img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px; /* Jarak antar item */
+  gap: 20px;
 }
 
 /* Wrapper Ikon */
 .social-icon {
   display: flex;
-  flex-direction: column; /* Icon atas, teks bawah */
+  flex-direction: column;
   align-items: center;
   text-decoration: none;
-  width: 85px; /* Lebar tetap agar teks tidak tabrakan */
+  width: 85px;
   transition: transform 0.3s ease;
 }
 
@@ -655,7 +655,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Lingkaran Gambar - FIXED */
+/* Lingkaran Gambar */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -663,21 +663,19 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 10px; /* Jarak ke teks */
+  margin-bottom: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   background: #fff; /* Basic white background */
   overflow: hidden;
 }
 
-/* Gambar Logo - MAGIC FIX */
+/* Gambar Logo Menjadi Putih */
 .icon-circle img {
-  width: 65%;  /* Ukuran gambar lebih besar (Full) */
-  height: 65%;
+  width: 60%; /* Ukuran pas agar tidak menyentuh pinggir */
+  height: 60%;
   object-fit: contain;
-  /* Membuat warna putih pada logo jadi transparan agar gradasi terlihat */
-  mix-blend-mode: multiply; 
-  /* Sedikit kontras agar logo lebih tajam */
-  filter: contrast(1.1);
+  /* Trik CSS untuk mengubah warna gambar menjadi putih solid */
+  filter: brightness(0) invert(1);
 }
 
 /* Warna Gradient Background */
@@ -686,13 +684,6 @@ img {
 .social-icon.tiktok .icon-circle { background: linear-gradient(135deg, #000000, #25f4ee); }
 .social-icon.whatsapp .icon-circle { background: linear-gradient(135deg, #25d366, #4ceb85); }
 .social-icon.instagram .icon-circle { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
-
-/* Khusus Tiktok (Logo hitam biasanya tidak perlu multiply) */
-.social-icon.tiktok .icon-circle img {
-    /* Jika logo tiktok kamu ada kotak putihnya, biarkan multiply. */
-    /* Jika logo tiktok kamu transparan, ganti jadi: mix-blend-mode: normal; */
-    mix-blend-mode: multiply; 
-}
 
 /* Teks Label */
 .social-label {
