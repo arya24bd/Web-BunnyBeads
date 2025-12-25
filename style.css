@@ -11,7 +11,6 @@ html {
 
 body {
   font-family: "Poppins", system-ui, -apple-system, sans-serif;
-  /* Background global halaman (di luar Hero) */
   background: linear-gradient(135deg, #ffd6eb 0%, #fef4fb 25%, #f3e8ff 60%, #ffffff 100%);
   background-attachment: fixed;
   color: #1f1f2e;
@@ -631,7 +630,9 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (REVISI FINAL - MAGIC BLEND) --- */
+/* --- Footer (SOLUSI FINAL: BACKGROUND PUTIH) --- */
+/* Dengan background putih, kotak putih pada gambar JPG akan "hilang" */
+
 .footer {
   padding: 50px 0 20px;
   background: #0f172a; /* Dark background */
@@ -675,7 +676,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Lingkaran Wadah Logo (GRADASI WARNA) */
+/* Lingkaran Wadah Logo */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -685,28 +686,31 @@ img {
   justify-content: center;
   margin-bottom: 10px;
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  border: 2px solid transparent;
+  
+  /* SET BACKGROUND JADI PUTIH */
+  /* Ini kunci agar kotak putih pada logo tidak terlihat */
+  background: #ffffff;
+  
+  /* Tambahkan Border agar tetap terlihat cantik */
+  border: 2px solid transparent; 
   transition: all 0.3s ease;
   overflow: hidden;
-  background: #fff; /* Fallback */
 }
 
-/* Terapkan warna gradasi sesuai brand */
-.social-icon.shopee .icon-circle { background: linear-gradient(135deg, #ee4d2d, #ff7337); }
-.social-icon.tokopedia .icon-circle { background: linear-gradient(135deg, #00aa5b, #42d686); }
-.social-icon.tiktok .icon-circle { background: linear-gradient(135deg, #000000, #25f4ee); }
-.social-icon.whatsapp .icon-circle { background: linear-gradient(135deg, #25d366, #4ceb85); }
-.social-icon.instagram .icon-circle { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+/* Efek Hover: Ubah border jadi warna Pink saat kursor diarahkan */
+.social-icon:hover .icon-circle {
+  border-color: #f471b9; /* Pink BunnyBeads */
+  box-shadow: 0 0 15px rgba(244, 113, 185, 0.5);
+}
 
-/* --- PERBAIKAN UTAMA: MENGHILANGKAN KOTAK PUTIH --- */
+/* Gambar Logo */
 .icon-circle img {
-  width: 65%;
-  height: 65%;
+  width: 60%; 
+  height: 60%;
   object-fit: contain;
-  /* Mix-blend-mode: multiply membuat warna PUTIH jadi TRANSPARAN */
-  mix-blend-mode: multiply; 
-  /* HAPUS filter yang bikin jadi kotak putih solid */
-  filter: contrast(1.2); 
+  /* HAPUS SEMUA FILTER! Biarkan warna asli muncul */
+  filter: none !important;
+  mix-blend-mode: normal !important;
 }
 
 /* Teks Label */
