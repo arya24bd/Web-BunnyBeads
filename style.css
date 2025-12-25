@@ -107,7 +107,6 @@ img {
   padding: 1rem 0;
   position: relative;
   z-index: 2;
-  gap: 1rem;
 }
 
 .logo {
@@ -201,18 +200,6 @@ img {
 .nav-toggle:hover span {
   background: linear-gradient(90deg, #f471b9, #d946a6);
   box-shadow: 0 2px 8px rgba(244, 113, 185, 0.2);
-}
-
-/* Navbar Logo Image */
-.navbar-logo-img {
-  height: 45px;
-  width: auto;
-  object-fit: contain;
-  transition: all 0.3s ease;
-}
-
-.navbar-logo-img:hover {
-  filter: drop-shadow(0 4px 12px rgba(244, 113, 185, 0.25));
 }
 
 /* --- Hero Section --- */
