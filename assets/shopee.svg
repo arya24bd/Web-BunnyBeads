@@ -1,13 +1,17 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" aria-hidden="true">
   <!-- Shopee bag orange with S -->
-  <g transform="translate(30, 30) scale(1.1)">
-    <!-- handle -->
-    <path d="M 35 10 Q 60 10 60 35" stroke="#EE4D2D" stroke-width="15" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-    <!-- bag body -->
-    <rect x="20" y="35" width="80" height="75" rx="12" fill="#EE4D2D" stroke="#EE4D2D" stroke-width="2"/>
-    <!-- S letter white -->
-    <path d="M 45 55 Q 45 48 55 48 Q 62 48 62 55 Q 62 60 55 62 Q 48 62 48 68 Q 48 75 55 75 Q 62 75 62 70" 
-          stroke="white" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-  </g>
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Shopee logo SVG wrapper that embeds the provided raster image.
+  Replace the placeholder text `REPLACE_WITH_BASE64_IMAGE` with the
+  base64 data of your PNG (without extra whitespace) so the <image>
+  element renders the actual logo. Example value starts with
+  `iVBORw0KGgo...` for PNG files.
+-->
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="256" height="256" viewBox="0 0 256 256" preserveAspectRatio="xMidYMid meet">
+  <title>Shopee (embedded raster)</title>
+  <image x="0" y="0" width="100%" height="100%" preserveAspectRatio="xMidYMid meet"
+         href="data:image/png;base64,REPLACE_WITH_BASE64_IMAGE" />
+</svg>
 </svg>
 
