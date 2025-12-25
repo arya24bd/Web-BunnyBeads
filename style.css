@@ -1004,6 +1004,8 @@ img {
   height: 60%;
   display: block;
   object-fit: contain;
+  mix-blend-mode: multiply;
+  filter: brightness(1.02) saturate(1.05);
 }
 
 /* Footer social improvements: brand colors, hover, sizing and responsive tweaks */
@@ -1041,7 +1043,7 @@ img {
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-.social-icon img { width: 60%; height: 60%; object-fit: contain; }
+.social-icon img { width: 60%; height: 60%; object-fit: contain; mix-blend-mode: multiply; filter: brightness(1.02) saturate(1.05); }
 
 .social-icon:hover { transform: translateY(-6px) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
 
