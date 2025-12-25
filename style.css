@@ -94,15 +94,39 @@ ul {
 }
 
 /* --- Hero Section (Area Banner) --- */
+/* --- Hero Section (Area Banner) --- */
 .hero {
   padding: 6rem 0 4rem;
   text-align: center;
-  /* Jika ada background image, pastikan path-nya benar */
+  position: relative; /* Penting agar ::before posisinya pas */
+  overflow: hidden;   /* Mencegah blur keluar dari kotak */
+  z-index: 1;         /* Memastikan konten ada di lapisan atas */
+  
+  /* HAPUS baris background-image dan filter yang lama dari sini */
+}
+
+/* Tambahkan kode baru ini untuk Background Blur */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* Pindahkan gambar background ke sini */
   background-image: url("assets/hero-bg.png");
   background-size: cover;
   background-position: center;
-  backdrop-filter: blur(3px);
-  filter: blur(8px);
+  
+  /* Efek Blur */
+  filter: blur(8px); 
+  
+  /* Taruh di belakang teks */
+  z-index: -1; 
+  
+  /* Tips: Perbesar sedikit agar pinggiran blur yang memudar tidak terlihat */
+  transform: scale(1.1); 
 }
 
 .hero-inner {
