@@ -140,26 +140,25 @@ img {
   border-radius: 2px;
 }
 
-/* --- Hero Section (UPDATED BACKGROUND) --- */
+/* --- Hero Section --- */
 .hero {
   padding: 6rem 0 4rem;
   position: relative;
   overflow: hidden;
   
-  /* Setting Background Image */
+  /* Background Image Setting */
   background: url("assets/hero-bg.png"); 
-  background-size: cover;       /* Gambar memenuhi area */
-  background-position: center;  /* Gambar di tengah */
-  background-repeat: no-repeat; /* Tidak mengulang gambar */
+  background-size: cover;       
+  background-position: center;  
+  background-repeat: no-repeat; 
 }
 
-/* Optional: Overlay transparan agar text tetap terbaca jelas jika gambar gelap/ramai */
-/* Hapus baris di bawah ini jika ingin gambar murni tanpa lapisan putih */
+/* Overlay transparan agar text tetap terbaca jelas */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6); /* Lapisan putih 60% */
+  background: rgba(255, 255, 255, 0.6); /* Lapisan putih transparan 60% */
   z-index: 0;
 }
 
@@ -168,7 +167,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  position: relative; /* Agar konten ada di atas overlay */
+  position: relative; /* Agar konten muncul di atas overlay */
   z-index: 1;
 }
 
@@ -189,7 +188,7 @@ img {
 }
 
 .hero-text p {
-  color: #4a4a5e; /* Warna text sedikit lebih gelap agar terbaca di bg image */
+  color: #4a4a5e;
   margin-bottom: 2rem;
   font-size: 1.1rem;
   max-width: 500px;
@@ -632,10 +631,12 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (FINAL WHITE ICON VERSION) --- */
+/* --- Footer (FINAL CLEAN VERSION) --- */
+/* Desain: Lingkaran Putih, Logo Asli. Solusi untuk gambar JPG/Non-Transparan */
+
 .footer {
   padding: 50px 0 20px;
-  background: #0f172a;
+  background: #0f172a; /* Latar belakang gelap */
   color: #e5e7eb;
   text-align: center;
 }
@@ -676,7 +677,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Lingkaran Gambar */
+/* Lingkaran Wadah Logo */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -685,26 +686,32 @@ img {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-  background: #fff; /* Basic white background */
+  
+  /* Background PUTIH agar menyatu dengan kotak putih pada gambar */
+  background: #ffffff; 
+  
+  /* Shadow lembut */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  border: 2px solid transparent; /* Border transparan untuk efek hover */
+  transition: all 0.3s ease;
   overflow: hidden;
 }
 
-/* Gambar Logo Menjadi Putih */
+/* Tampilkan Logo Asli */
 .icon-circle img {
-  width: 60%; /* Ukuran pas agar tidak menyentuh pinggir */
+  width: 60%; 
   height: 60%;
   object-fit: contain;
-  /* Trik CSS untuk mengubah warna gambar menjadi putih solid */
-  filter: brightness(0) invert(1);
+  /* Hapus filter agar warna asli logo muncul */
+  filter: none; 
+  mix-blend-mode: normal;
 }
 
-/* Warna Gradient Background */
-.social-icon.shopee .icon-circle { background: linear-gradient(135deg, #ee4d2d, #ff7337); }
-.social-icon.tokopedia .icon-circle { background: linear-gradient(135deg, #00aa5b, #42d686); }
-.social-icon.tiktok .icon-circle { background: linear-gradient(135deg, #000000, #25f4ee); }
-.social-icon.whatsapp .icon-circle { background: linear-gradient(135deg, #25d366, #4ceb85); }
-.social-icon.instagram .icon-circle { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
+/* Efek Hover: Border Warna Pink */
+.social-icon:hover .icon-circle {
+  border-color: #f471b9;
+  box-shadow: 0 8px 20px rgba(244, 113, 185, 0.4);
+}
 
 /* Teks Label */
 .social-label {
@@ -713,6 +720,7 @@ img {
   font-weight: 500;
   text-align: center;
   line-height: 1.3;
+  transition: color 0.3s;
 }
 
 .social-icon:hover .social-label {
