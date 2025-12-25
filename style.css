@@ -265,8 +265,9 @@ img {
   gap: 12px;
   flex-wrap: wrap;
   justify-content: center;
-  width: 100%;
-  margin-top: 1.25rem;
+  max-width: 900px;
+  margin: 1.25rem auto 0;
+  align-items: center;
 }
 
 .hero-badges span {
@@ -277,6 +278,12 @@ img {
   border: 1px solid rgba(244, 113, 185, 0.3);
   color: #d946a6;
   backdrop-filter: blur(4px);
+}
+
+.hero-badges span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /* Hero Animation Elements */
