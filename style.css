@@ -11,6 +11,7 @@ html {
 
 body {
   font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  /* Background global halaman */
   background: linear-gradient(135deg, #ffd6eb 0%, #fef4fb 25%, #f3e8ff 60%, #ffffff 100%);
   background-attachment: fixed;
   color: #1f1f2e;
@@ -21,7 +22,6 @@ body {
 img {
   max-width: 100%;
   display: block;
-  border: none; /* Memastikan tidak ada border bawaan */
 }
 
 .container {
@@ -146,19 +146,19 @@ img {
   position: relative;
   overflow: hidden;
   
-  /* Background Image Setting */
+  /* Background Image */
   background: url("assets/hero-bg.png"); 
   background-size: cover;       
   background-position: center;  
   background-repeat: no-repeat; 
 }
 
-/* Overlay transparan agar text tetap terbaca jelas */
+/* Overlay transparan */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6); /* Lapisan putih transparan 60% */
+  background: rgba(255, 255, 255, 0.6); 
   z-index: 0;
 }
 
@@ -167,7 +167,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  position: relative; /* Agar konten muncul di atas overlay */
+  position: relative;
   z-index: 1;
 }
 
@@ -631,13 +631,10 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (FINAL FIX: SOLID WHITE ICONS ON GRADIENT) --- */
-/* Solusi ini mengubah logo apapun (termasuk JPG berlatar putih) menjadi putih solid */
-/* agar terlihat bersih di atas background gradasi warna-warni */
-
+/* --- Footer (REVISI MAGIC BLEND) --- */
 .footer {
   padding: 50px 0 20px;
-  background: #0f172a; /* Latar belakang gelap */
+  background: #0f172a; /* Dark background */
   color: #e5e7eb;
   text-align: center;
 }
@@ -678,7 +675,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Lingkaran Wadah Logo (Background Gradasi KEMBALI) */
+/* Lingkaran Wadah Logo (GRADASI WARNA) */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -691,28 +688,26 @@ img {
   border: 2px solid transparent;
   transition: all 0.3s ease;
   overflow: hidden;
-  /* Hapus background putih polos */
+  background: #fff; /* Fallback */
 }
 
-/* Gambar Logo DIUBAH JADI PUTIH SOLID */
-.icon-circle img {
-  width: 55%; /* Ukuran sedikit lebih kecil agar rapi */
-  height: 55%;
-  object-fit: contain;
-  /* FILTER PENTING: Mengubah gambar menjadi putih total */
-  filter: brightness(0) invert(1); 
-  -webkit-filter: brightness(0) invert(1);
-  border: none !important;
-  box-shadow: none !important;
-}
-
-/* Warna Gradient Background (KEMBALI DIADAKAN) */
+/* Terapkan warna gradasi sesuai brand */
 .social-icon.shopee .icon-circle { background: linear-gradient(135deg, #ee4d2d, #ff7337); }
 .social-icon.tokopedia .icon-circle { background: linear-gradient(135deg, #00aa5b, #42d686); }
 .social-icon.tiktok .icon-circle { background: linear-gradient(135deg, #000000, #25f4ee); }
 .social-icon.whatsapp .icon-circle { background: linear-gradient(135deg, #25d366, #4ceb85); }
 .social-icon.instagram .icon-circle { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); }
 
+/* --- PERBAIKAN UTAMA: MENGHILANGKAN KOTAK PUTIH --- */
+.icon-circle img {
+  width: 65%;
+  height: 65%;
+  object-fit: contain;
+  /* Mix-blend-mode: multiply membuat warna PUTIH jadi TRANSPARAN */
+  mix-blend-mode: multiply; 
+  /* HAPUS semua filter brightness/invert yang bikin jadi kotak putih solid */
+  filter: contrast(1.2); 
+}
 
 /* Teks Label */
 .social-label {
