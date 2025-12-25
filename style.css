@@ -1000,9 +1000,10 @@ img {
 }
 
 .social-icon img {
-  width: 28px;
-  height: 28px;
+  width: 60%;
+  height: 60%;
   display: block;
+  object-fit: contain;
 }
 
 /* Footer social improvements: brand colors, hover, sizing and responsive tweaks */
@@ -1040,7 +1041,7 @@ img {
   box-shadow: 0 6px 18px rgba(0,0,0,0.12);
 }
 
-.social-icon img { width: 24px; height: 24px; }
+.social-icon img { width: 60%; height: 60%; object-fit: contain; }
 
 .social-icon:hover { transform: translateY(-6px) scale(1.06); box-shadow: 0 12px 30px rgba(0,0,0,0.18); }
 

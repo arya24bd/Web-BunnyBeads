@@ -136,3 +136,33 @@ if (kontakForm) {
     // For demo purposes, we just show the notification
   });
 }
+
+// Reload social images (cache-busting) so they selalu ter-refresh dan pas di dalam ikon
+function reloadSocialImages() {
+  const selectors = [
+    ".social-icon.shopee img",
+    ".social-icon.tokopedia img",
+    ".social-icon.tiktok img",
+    ".social-icon.whatsapp img",
+    ".social-icon.instagram img",
+  ];
+
+  selectors.forEach((sel) => {
+    const img = document.querySelector(sel);
+    if (!img) return;
+    try {
+      const src = img.getAttribute("src") || img.src;
+      const url = new URL(src, location.href);
+      url.searchParams.set("_cb", Date.now());
+      img.src = url.href;
+    } catch (err) {
+      // fallback: append timestamp manually if URL constructor fails
+      const src = img.getAttribute("src") || img.src || "";
+      img.src = src.split("?")[0] + "?_cb=" + Date.now();
+    }
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  reloadSocialImages();
+});
