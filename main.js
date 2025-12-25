@@ -1,168 +1,119 @@
-// Toggle navbar on mobile
-const navToggle = document.querySelector(".nav-toggle");
-const navLinks = document.querySelector(".nav-links");
+document.addEventListener('DOMContentLoaded', () => {
+  
+  // --- 1. Mobile Menu (Hamburger) ---
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-if (navToggle && navLinks) {
-  navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("show");
-  });
+  if (navToggle && navLinks) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
+    });
 
-  navLinks.addEventListener("click", (e) => {
-    if (e.target.tagName === "A") {
-      navLinks.classList.remove("show");
-    }
-  });
-}
+    // Tutup menu saat link diklik
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('show');
+      });
+    });
+  }
 
-// Set current year in footer
-const yearSpan = document.getElementById("year");
-if (yearSpan) {
-  yearSpan.textContent = new Date().getFullYear();
-}
+  // --- 2. Product Detail Modal (Popup) ---
+  const modal = document.getElementById('product-modal');
+  const modalImage = document.getElementById('product-modal-image');
+  const modalTitle = document.getElementById('product-modal-title');
+  const modalPrice = document.getElementById('product-modal-price');
+  const modalDesc = document.getElementById('product-modal-description');
+  const closeButtons = document.querySelectorAll('[data-modal-close]');
 
-// Product detail modal
-const modal = document.getElementById("product-modal");
-const modalTitle = document.getElementById("product-modal-title");
-const modalDescription = document.getElementById("product-modal-description");
-const modalImage = document.getElementById("product-modal-image");
-const modalPrice = document.getElementById("product-modal-price");
+  // Tangkap klik pada semua tombol "Detail"
+  document.addEventListener('click', (e) => {
+    // Cek jika yang diklik adalah tombol detail
+    const btn = e.target.closest('.btn-detail');
+    if (!btn) return;
 
-function openProductModal(title, description, imageSrc, price) {
-  if (!modal || !modalTitle || !modalDescription || !modalImage || !modalPrice) return;
-  modalTitle.textContent = title;
-  modalDescription.textContent = description;
-  modalImage.src = imageSrc;
-  modalPrice.textContent = "Rp " + price;
-  modal.classList.add("is-open");
-  document.body.style.overflow = "hidden";
-}
-
-function closeProductModal() {
-  if (!modal) return;
-  modal.classList.remove("is-open");
-  document.body.style.overflow = "";
-}
-
-// Handle click on all "Detail" buttons
-document.addEventListener("click", (event) => {
-  const detailBtn = event.target.closest(".btn-detail");
-  if (detailBtn) {
-    const card = detailBtn.closest(".card");
+    const card = btn.closest('.card');
     if (!card) return;
-    const titleEl = card.querySelector("h3");
-    const descEl = card.querySelector(".card-desc");
-    const title = titleEl ? titleEl.textContent.trim() : "";
-    const description = descEl ? descEl.textContent.trim() : "";
-    const imageSrc = card.getAttribute("data-product-img") || "";
-    const price = card.getAttribute("data-product-price") || "";
-    openProductModal(title, description, imageSrc, price);
-  }
 
-  if (event.target.matches("[data-modal-close]") || event.target.classList.contains("product-modal-backdrop")) {
-    closeProductModal();
-  }
-});
+    // Ambil data produk
+    const imgSrc = card.getAttribute('data-product-img');
+    const price = card.getAttribute('data-product-price');
+    const title = card.querySelector('h3').innerText;
+    const descElement = card.querySelector('.card-desc');
+    const description = descElement ? descElement.innerText : "Deskripsi belum tersedia.";
 
-// Close modal on Escape key
-document.addEventListener("keydown", (event) => {
-  if (event.key === "Escape" && modal && modal.classList.contains("is-open")) {
-    closeProductModal();
-  }
-});
+    // Isi Modal
+    modalImage.src = imgSrc;
+    modalTitle.innerText = title;
+    modalPrice.innerText = 'Rp ' + price;
+    modalDesc.innerText = description;
 
-// Notification Toast
-const notificationToast = document.getElementById("notification-toast");
-let notificationTimeout;
-
-function showNotification(title = "Pesan Terkirim!", message = "Terima kasih telah menghubungi kami. Kami akan merespon segera.") {
-  if (!notificationToast) return;
-  
-  // Update notification content
-  const notifTitle = notificationToast.querySelector(".notification-title");
-  const notifMessage = notificationToast.querySelector(".notification-message");
-  if (notifTitle) notifTitle.textContent = title;
-  if (notifMessage) notifMessage.textContent = message;
-  
-  // Show notification
-  notificationToast.classList.add("show");
-  
-  // Clear existing timeout
-  clearTimeout(notificationTimeout);
-  
-  // Auto hide after 5 seconds
-  notificationTimeout = setTimeout(() => {
-    hideNotification();
-  }, 5000);
-}
-
-function hideNotification() {
-  if (!notificationToast) return;
-  notificationToast.classList.remove("show");
-}
-
-// Handle notification close button
-const notificationClose = document.querySelector(".notification-close");
-if (notificationClose) {
-  notificationClose.addEventListener("click", hideNotification);
-}
-
-// Form submission handler
-const kontakForm = document.querySelector(".kontak-form");
-if (kontakForm) {
-  kontakForm.addEventListener("submit", (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const nama = kontakForm.querySelector("#nama").value;
-    const email = kontakForm.querySelector("#email").value;
-    const pesan = kontakForm.querySelector("#pesan").value;
-    
-    // Validate form
-    if (!nama || !email || !pesan) {
-      showNotification("Oops!", "Mohon isi semua field yang diperlukan.");
-      return;
-    }
-    
-    // Show success notification
-    showNotification(
-      "Pesan Terkirim! 🎉",
-      `Halo ${nama}, terima kasih telah menghubungi kami. Kami akan merespon email Anda segera di ${email}.`
-    );
-    
-    // Reset form
-    kontakForm.reset();
-    
-    // You can add actual form submission logic here if needed
-    // For demo purposes, we just show the notification
+    // Tampilkan Modal
+    modal.classList.add('is-open');
   });
-}
 
-// Reload social images (cache-busting) so they selalu ter-refresh dan pas di dalam ikon
-function reloadSocialImages() {
-  const selectors = [
-    ".social-icon.shopee img",
-    ".social-icon.tokopedia img",
-    ".social-icon.tiktok img",
-    ".social-icon.whatsapp img",
-    ".social-icon.instagram img",
-  ];
+  // Tutup Modal
+  closeButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      modal.classList.remove('is-open');
+    });
+  });
 
-  selectors.forEach((sel) => {
-    const img = document.querySelector(sel);
-    if (!img) return;
-    try {
-      const src = img.getAttribute("src") || img.src;
-      const url = new URL(src, location.href);
-      url.searchParams.set("_cb", Date.now());
-      img.src = url.href;
-    } catch (err) {
-      // fallback: append timestamp manually if URL constructor fails
-      const src = img.getAttribute("src") || img.src || "";
-      img.src = src.split("?")[0] + "?_cb=" + Date.now();
+  // Tutup jika klik di luar kotak (background gelap)
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.classList.remove('is-open');
     }
   });
-}
 
-document.addEventListener("DOMContentLoaded", () => {
-  reloadSocialImages();
+  // --- 3. Form Kontak & Notifikasi ---
+  const contactForm = document.querySelector('.kontak-form');
+  const toast = document.getElementById('notification-toast');
+  const toastClose = document.querySelector('.notification-close');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Mencegah reload halaman
+      
+      const nama = document.getElementById('nama').value;
+      
+      // Reset form
+      contactForm.reset();
+
+      // Tampilkan Notifikasi
+      if (toast) {
+        const msg = toast.querySelector('.notification-message');
+        if(msg) msg.innerText = `Halo ${nama}, pesanmu sudah terkirim!`;
+        
+        toast.classList.add('show');
+        
+        // Hilang otomatis setelah 4 detik
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 4000);
+      }
+    });
+  }
+
+  if (toastClose) {
+    toastClose.addEventListener('click', () => {
+      toast.classList.remove('show');
+    });
+  }
+
+  // --- 4. Tahun Otomatis di Footer ---
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.innerText = new Date().getFullYear();
+  }
+
+  // --- 5. Fix Gambar Sosmed (Cache Busting) ---
+  // Trik agar gambar di dalam lingkaran putih footer selalu fresh dan pas
+  const socialImages = document.querySelectorAll('.social-icon img');
+  socialImages.forEach(img => {
+    const src = img.getAttribute('src');
+    if(src) {
+      img.src = src + '?t=' + new Date().getTime();
+    }
+  });
+
 });
