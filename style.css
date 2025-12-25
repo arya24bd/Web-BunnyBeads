@@ -10,7 +10,7 @@ html {
 }
 
 body {
-  font-family: "Poppins", system-ui, -apple-system, sans-serif;
+  font-family: "Poppins", sans-serif;
   background: linear-gradient(135deg, #ffd6eb 0%, #fef4fb 25%, #f3e8ff 60%, #ffffff 100%);
   background-attachment: fixed;
   color: #1f1f2e;
@@ -144,20 +144,17 @@ img {
   padding: 6rem 0 4rem;
   position: relative;
   overflow: hidden;
-  
-  /* Background Image Setting */
   background: url("assets/hero-bg.png"); 
   background-size: cover;       
   background-position: center;  
   background-repeat: no-repeat; 
 }
 
-/* Overlay transparan agar text tetap terbaca jelas */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6); /* Lapisan putih transparan 60% */
+  background: rgba(255, 255, 255, 0.6); 
   z-index: 0;
 }
 
@@ -166,7 +163,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  position: relative; /* Agar konten muncul di atas overlay */
+  position: relative;
   z-index: 1;
 }
 
@@ -630,12 +627,12 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (SOLUSI FINAL: BACKGROUND PUTIH) --- */
-/* Dengan background putih, kotak putih pada gambar JPG akan "hilang" */
+/* --- Footer (FINAL FIX - LINGKARAN PUTIH BERSIH) --- */
+/* Menggunakan !important untuk memastikan gaya lama (kotak putih solid) tertimpa */
 
 .footer {
   padding: 50px 0 20px;
-  background: #0f172a; /* Dark background */
+  background: #0f172a;
   color: #e5e7eb;
   text-align: center;
 }
@@ -662,7 +659,6 @@ img {
   gap: 20px;
 }
 
-/* Wrapper Ikon */
 .social-icon {
   display: flex;
   flex-direction: column;
@@ -676,7 +672,7 @@ img {
   transform: translateY(-5px);
 }
 
-/* Lingkaran Wadah Logo */
+/* Lingkaran Putih (Untuk Menyamarkan Background Gambar) */
 .icon-circle {
   width: 50px;
   height: 50px;
@@ -685,35 +681,39 @@ img {
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  
+  /* SET BACKGROUND PUTIH dengan !important */
+  background: #ffffff !important; 
+  
+  /* Hapus gradient lama jika masih nempel */
+  background-image: none !important;
+  
   box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-  
-  /* SET BACKGROUND JADI PUTIH */
-  /* Ini kunci agar kotak putih pada logo tidak terlihat */
-  background: #ffffff;
-  
-  /* Tambahkan Border agar tetap terlihat cantik */
   border: 2px solid transparent; 
   transition: all 0.3s ease;
   overflow: hidden;
 }
 
-/* Efek Hover: Ubah border jadi warna Pink saat kursor diarahkan */
-.social-icon:hover .icon-circle {
-  border-color: #f471b9; /* Pink BunnyBeads */
-  box-shadow: 0 0 15px rgba(244, 113, 185, 0.5);
-}
-
-/* Gambar Logo */
+/* Gambar Logo: NORMAL tanpa filter */
 .icon-circle img {
-  width: 60%; 
-  height: 60%;
-  object-fit: contain;
-  /* HAPUS SEMUA FILTER! Biarkan warna asli muncul */
+  width: 60% !important; 
+  height: 60% !important;
+  object-fit: contain !important;
+  
+  /* RESET SEMUA FILTER PENGGANGGU */
   filter: none !important;
+  -webkit-filter: none !important;
   mix-blend-mode: normal !important;
+  opacity: 1 !important;
+  background: transparent !important;
 }
 
-/* Teks Label */
+/* Efek Hover */
+.social-icon:hover .icon-circle {
+  border-color: #f471b9;
+  box-shadow: 0 0 15px rgba(244, 113, 185, 0.4);
+}
+
 .social-label {
   font-size: 0.75rem;
   color: #e5e7eb;
@@ -770,5 +770,5 @@ img {
   
   .tentang-inner, .kontak-inner { flex-direction: column; }
   .social-links { gap: 10px; }
-  .social-icon { width: 70px; } /* Sedikit lebih kecil di HP */
+  .social-icon { width: 70px; } 
 }
