@@ -11,7 +11,7 @@ html {
 
 body {
   font-family: "Poppins", system-ui, -apple-system, sans-serif;
-  /* Background global halaman */
+  /* Background global halaman (di luar Hero) */
   background: linear-gradient(135deg, #ffd6eb 0%, #fef4fb 25%, #f3e8ff 60%, #ffffff 100%);
   background-attachment: fixed;
   color: #1f1f2e;
@@ -146,19 +146,19 @@ img {
   position: relative;
   overflow: hidden;
   
-  /* Background Image */
+  /* Background Image Setting */
   background: url("assets/hero-bg.png"); 
   background-size: cover;       
   background-position: center;  
   background-repeat: no-repeat; 
 }
 
-/* Overlay transparan */
+/* Overlay transparan agar text tetap terbaca jelas */
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0.6); 
+  background: rgba(255, 255, 255, 0.6); /* Lapisan putih transparan 60% */
   z-index: 0;
 }
 
@@ -167,7 +167,7 @@ img {
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-  position: relative;
+  position: relative; /* Agar konten muncul di atas overlay */
   z-index: 1;
 }
 
@@ -631,7 +631,7 @@ img {
 .notification-message { font-size: 0.9rem; color: #666; }
 .notification-close { border: none; background: none; font-size: 1.2rem; cursor: pointer; color: #999; }
 
-/* --- Footer (REVISI MAGIC BLEND) --- */
+/* --- Footer (REVISI FINAL - MAGIC BLEND) --- */
 .footer {
   padding: 50px 0 20px;
   background: #0f172a; /* Dark background */
@@ -705,7 +705,7 @@ img {
   object-fit: contain;
   /* Mix-blend-mode: multiply membuat warna PUTIH jadi TRANSPARAN */
   mix-blend-mode: multiply; 
-  /* HAPUS semua filter brightness/invert yang bikin jadi kotak putih solid */
+  /* HAPUS filter yang bikin jadi kotak putih solid */
   filter: contrast(1.2); 
 }
 
