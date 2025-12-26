@@ -170,7 +170,7 @@ ul {
   inset: 0;
   background: url("assets/hero-bg.png") center / cover no-repeat;
   filter: blur(10px);
-  transform: scale(1.15);
+  transform: scale(1.1); /* cegah pinggir blur terpotong */
   z-index: -1;
 }
 
@@ -202,9 +202,10 @@ ul {
 
 .hero {
   position: relative;
-  padding: 7rem 0 6rem;
+  padding: 7rem 0 5rem; /* lebih lega */
   text-align: center;
   overflow: hidden;
+  
 }
 
 
@@ -218,8 +219,6 @@ ul {
   align-items: center;
 
   flex-direction: column;
-    max-width: 900px;
-  margin: 0 auto;
 
 }
 
@@ -248,9 +247,6 @@ ul {
   margin: 0 auto 2rem;
 
   color: #555;
-  
-  margin-bottom: 2.2rem;
-
 
 }
 
@@ -360,20 +356,30 @@ ul {
 
 /* --- Kartu Produk (Grid) --- */
 
-.product-grid {
+.grid.cards {
+
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 2.5rem;
-  margin-top: 3rem;
+
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+  gap: 2rem;
+
 }
 
 
 
-
 .card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
+
+  background: white;
+
+  border-radius: 15px;
+
+  overflow: hidden;
+
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+
+  transition: transform 0.3s;
+
 }
 
 .card:hover { transform: translateY(-5px); }
@@ -414,9 +420,7 @@ ul {
 
 
 
-.card-body {
-  flex-grow: 1;
-}
+.card-body { padding: 1.5rem; }
 
 .card h3 { margin-bottom: 0.5rem; color: #333; }
 
@@ -439,12 +443,16 @@ ul {
 /* --- Tentang Kami & Kontak --- */
 
 .tentang-inner, .kontak-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem;
-  align-items: start;
-}
 
+  display: flex;
+
+  gap: 3rem;
+
+  align-items: center;
+
+  flex-wrap: wrap;
+
+}
 
 .tentang-text, .kontak-text { flex: 1; min-width: 300px; }
 
@@ -461,7 +469,6 @@ ul {
   box-shadow: 0 10px 30px rgba(0,0,0,0.05);
 
   min-width: 300px;
-  max-width: 480px;
 
 }
 
@@ -642,9 +649,5 @@ ul {
     padding: 2rem;
     gap: 1.5rem;
     /* ... sisa kode posisi absolute kamu ... */
-  }
-
-  .kontak-inner {
-    grid-template-columns: 1fr;
   }
 }
