@@ -86,82 +86,105 @@ ul {
 
 /* --- Navbar --- */
 
+/* --- Navbar Modern (Glassmorphism) --- */
 .navbar {
-
   position: sticky;
-
   top: 0;
-
   z-index: 1000;
-
-  background: rgba(255, 255, 255, 0.9);
-
-  backdrop-filter: blur(10px);
-
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-
+  /* Efek kaca modern */
+  background: rgba(255, 255, 255, 0.7); 
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+  padding: 1rem 0; /* Padding default */
 }
 
-
+/* Class tambahan saat discroll (nanti diatur JS) */
+.navbar.scrolled {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 0.8rem 0; /* Sedikit mengecil saat scroll */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
 
 .nav-inner {
-
   display: flex;
-
   align-items: center;
-
   justify-content: space-between;
-
-  padding: 1rem 0;
-
+  /* Hapus padding vertikal di sini karena sudah diatur di .navbar */
 }
 
-
-
+/* Logo dengan efek gradient text */
 .logo {
-
-  font-size: 1.5rem;
-
-  font-weight: 700;
-
+  font-size: 1.6rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
   color: #333;
-
 }
-
 .logo span {
-
-  color: #f471b9; /* Pink Utama */
-
+  color: #f471b9;
 }
 
-
-
+/* Link Navigasi Modern */
 .nav-links {
-
   display: flex;
-
-  gap: 2rem;
-
+  gap: 2.5rem;
 }
-
-
 
 .nav-links a {
-
   font-weight: 500;
-
-  color: #333;
-
+  color: #4a4a4a;
+  position: relative;
   transition: color 0.3s;
+  font-size: 0.95rem;
+}
 
+/* Animasi Garis Bawah saat Hover */
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #f471b9;
+  transition: width 0.3s ease-in-out;
+  border-radius: 2px;
 }
 
 .nav-links a:hover {
-
   color: #f471b9;
-
 }
 
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* --- Hero Section Background Update --- */
+/* Pastikan .hero memiliki position relative (seperti kode sebelumnya) */
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  background-image: url("assets/hero-bg.png");
+  background-size: cover;
+  
+  /* UPDATE DISINI: Mengatur posisi gambar */
+  /* 'center 35%' artinya: horizontal tengah, vertikal turun ke titik 35% */
+  /* Semakin besar % kedua, gambar akan semakin 'naik' ke atas (menampilkan bagian bawah gambar) */
+  /* Semakin kecil % kedua, gambar akan semakin 'turun' (menampilkan bagian atas gambar) */
+  background-position: center 35%; 
+  
+  filter: blur(6px); /* Blur sedikit dikurangi agar lebih elegan */
+  z-index: -1; 
+  transform: scale(1.1); 
+}
 
 
 .nav-toggle {
@@ -641,23 +664,15 @@ ul {
 /* --- Responsive (Mobile) --- */
 
 @media (max-width: 768px) {
-
-  .nav-toggle { display: flex; }
+  /* ... kode nav-toggle kamu sebelumnya ... */
 
   .nav-links {
-
-    position: absolute; top: 100%; left: 0; right: 0;
-
-    background: white; flex-direction: column; padding: 2rem;
-
-    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-
-    transform: translateY(-20px); opacity: 0; visibility: hidden; transition: 0.3s;
-
+    /* Pastikan menu mobile backgroundnya solid agar tulisan terbaca */
+    background: rgba(255, 255, 255, 0.98); 
+    backdrop-filter: blur(10px);
+    border-top: 1px solid #eee;
+    padding: 2rem;
+    gap: 1.5rem;
+    /* ... sisa kode posisi absolute kamu ... */
   }
-
-  .nav-links.show { transform: translateY(0); opacity: 1; visibility: visible; }
-
-  .hero-text h1 { font-size: 2.2rem; }
-
 }

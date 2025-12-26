@@ -1,6 +1,16 @@
 document.addEventListener('DOMContentLoaded', () => {
 
- 
+  // --- 0. Navbar Scroll Effect (Baru) ---
+  const navbar = document.querySelector('.navbar');
+  
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
 
   // --- 1. Mobile Menu (Hamburger) ---
 
