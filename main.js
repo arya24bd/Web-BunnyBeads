@@ -1,20 +1,19 @@
 document.addEventListener('DOMContentLoaded', () => {
   
-  // 1. Navbar Scroll & Mobile Menu
+  // --- 0. Navbar Scroll Effect (Baru) ---
   const navbar = document.querySelector('.navbar');
-  const navToggle = document.querySelector('.nav-toggle');
-  const navLinks = document.querySelector('.nav-links');
-
-  // Efek Navbar saat scroll
+  
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 20) {
+    if (window.scrollY > 50) {
       navbar.classList.add('scrolled');
     } else {
       navbar.classList.remove('scrolled');
     }
   });
+  // --- 1. Mobile Menu (Hamburger) ---
+  const navToggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
 
-  // Toggle Menu Mobile
   if (navToggle && navLinks) {
     navToggle.addEventListener('click', () => {
       navLinks.classList.toggle('show');
@@ -28,65 +27,103 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. Product Modal (Pop-up Detail)
+  // --- 2. Product Detail Modal (Popup) ---
   const modal = document.getElementById('product-modal');
-  const modalImg = document.getElementById('product-modal-image');
+  const modalImage = document.getElementById('product-modal-image');
   const modalTitle = document.getElementById('product-modal-title');
   const modalPrice = document.getElementById('product-modal-price');
   const modalDesc = document.getElementById('product-modal-description');
-  const closeModalBtns = document.querySelectorAll('[data-modal-close]');
+  const closeButtons = document.querySelectorAll('[data-modal-close]');
 
+  // Tangkap klik pada semua tombol "Detail"
   document.addEventListener('click', (e) => {
-    // Cek tombol detail
+    // Cek jika yang diklik adalah tombol detail
     const btn = e.target.closest('.btn-detail');
     if (!btn) return;
 
     const card = btn.closest('.card');
-    const imgSrc = card.dataset.productImg;
-    const price = card.dataset.productPrice;
+    if (!card) return;
+
+    // Ambil data produk
+    const imgSrc = card.getAttribute('data-product-img');
+    const price = card.getAttribute('data-product-price');
     const title = card.querySelector('h3').innerText;
-    const desc = card.querySelector('.card-desc') ? card.querySelector('.card-desc').innerText : "Deskripsi produk...";
+    const descElement = card.querySelector('.card-desc');
+    const description = descElement ? descElement.innerText : "Deskripsi belum tersedia.";
 
-    // Isi konten modal
-    modalImg.src = imgSrc;
+    // Isi Modal
+    modalImage.src = imgSrc;
     modalTitle.innerText = title;
-    modalPrice.innerText = `Rp ${price}`;
-    modalDesc.innerText = desc;
+    modalPrice.innerText = 'Rp ' + price;
+    modalDesc.innerText = description;
 
-    // Buka modal
+    // Tampilkan Modal
     modal.classList.add('is-open');
   });
 
   // Tutup Modal
-  closeModalBtns.forEach(btn => {
+  closeButtons.forEach(btn => {
     btn.addEventListener('click', () => {
       modal.classList.remove('is-open');
     });
   });
 
-  // Tutup jika klik background
+  // Tutup jika klik di luar kotak (background gelap)
   window.addEventListener('click', (e) => {
-    if (e.target === modal) modal.classList.remove('is-open');
+    if (e.target === modal) {
+      modal.classList.remove('is-open');
+    }
   });
 
-  // 3. Form Submission (Simulasi)
-  const form = document.querySelector('.kontak-form');
+  // --- 3. Form Kontak & Notifikasi ---
+  const contactForm = document.querySelector('.kontak-form');
   const toast = document.getElementById('notification-toast');
-  
-  if (form) {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      form.reset();
+  const toastClose = document.querySelector('.notification-close');
+
+  if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault(); // Mencegah reload halaman
       
+      const nama = document.getElementById('nama').value;
+      
+      // Reset form
+      contactForm.reset();
+
+      // Tampilkan Notifikasi
       if (toast) {
+        const msg = toast.querySelector('.notification-message');
+        if(msg) msg.innerText = `Halo ${nama}, pesanmu sudah terkirim!`;
+        
         toast.classList.add('show');
-        setTimeout(() => toast.classList.remove('show'), 4000);
+        
+        // Hilang otomatis setelah 4 detik
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 4000);
       }
     });
   }
 
-  // 4. Update Tahun Copyright
+  if (toastClose) {
+    toastClose.addEventListener('click', () => {
+      toast.classList.remove('show');
+    });
+  }
+
+  // --- 4. Tahun Otomatis di Footer ---
   const yearSpan = document.getElementById('year');
-  if (yearSpan) yearSpan.innerText = new Date().getFullYear();
+  if (yearSpan) {
+    yearSpan.innerText = new Date().getFullYear();
+  }
+
+  // --- 5. Fix Gambar Sosmed (Cache Busting) ---
+  // Trik agar gambar di dalam lingkaran putih footer selalu fresh dan pas
+  const socialImages = document.querySelectorAll('.social-icon img');
+  socialImages.forEach(img => {
+    const src = img.getAttribute('src');
+    if(src) {
+      img.src = src + '?t=' + new Date().getTime();
+    }
+  });
 
 });
