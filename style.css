@@ -167,25 +167,13 @@ ul {
 .hero::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  
-  background-image: url("assets/hero-bg.png");
-  background-size: cover;
-  
-  /* UPDATE DISINI: Mengatur posisi gambar */
-  /* 'center 35%' artinya: horizontal tengah, vertikal turun ke titik 35% */
-  /* Semakin besar % kedua, gambar akan semakin 'naik' ke atas (menampilkan bagian bawah gambar) */
-  /* Semakin kecil % kedua, gambar akan semakin 'turun' (menampilkan bagian atas gambar) */
-  background-position: center 35%; 
-  
-  filter: blur(6px); /* Blur sedikit dikurangi agar lebih elegan */
-  z-index: -1; 
-  transform: scale(1.1); 
+  inset: 0;
+  background: url("assets/hero-bg.png") center / cover no-repeat;
+  filter: blur(10px);
+  transform: scale(1.1); /* cegah pinggir blur terpotong */
+  z-index: -1;
+  margin-bottom: 1rem;
 }
-
 
 .nav-toggle {
 
@@ -214,23 +202,11 @@ ul {
 /* --- Hero Section (Area Banner) --- */
 
 .hero {
-
-  padding: 6rem 0 4rem;
-
+  position: relative;
+  padding: 7rem 0 5rem; /* lebih lega */
   text-align: center;
-
-  /* Jika ada background image, pastikan path-nya benar */
-
-  background-image: url("assets/hero-bg.png");
-
-  background-size: cover;
-
-  background-position: center;
-
-  backdrop-filter: blur(3px);
-
-  filter: blur(8px);
-
+  overflow: hidden;
+  margin-top: 1rem;
 }
 
 
@@ -244,6 +220,8 @@ ul {
   align-items: center;
 
   flex-direction: column;
+    max-width: 900px;
+  margin: 0 auto;
 
 }
 
@@ -272,6 +250,9 @@ ul {
   margin: 0 auto 2rem;
 
   color: #555;
+  
+  margin-bottom: 2.2rem;
+
 
 }
 
