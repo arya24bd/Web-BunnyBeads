@@ -1,6 +1,4 @@
-/* ===============================
-   RESET & GLOBAL STYLES
-================================ */
+/* --- Reset & Global Styles --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -48,24 +46,23 @@ ul {
   padding: 0 1.5rem;
 }
 
-/* ===============================
-   NAVBAR
-================================ */
+/* --- Navbar --- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
   padding: 1rem 0;
-  transition: 0.3s;
 }
 
 .navbar.scrolled {
   background: rgba(255, 255, 255, 0.9);
   padding: 0.8rem 0;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav-inner {
@@ -78,7 +75,6 @@ ul {
   font-size: 1.6rem;
   font-weight: 800;
 }
-
 .logo span {
   color: #f471b9;
 }
@@ -90,19 +86,19 @@ ul {
 
 .nav-links a {
   font-weight: 500;
-  position: relative;
   color: #4a4a4a;
+  position: relative;
 }
 
 .nav-links a::after {
   content: "";
   position: absolute;
-  left: 0;
-  bottom: -4px;
   width: 0;
   height: 2px;
-  background: #f471b9;
-  transition: 0.3s;
+  bottom: -4px;
+  left: 0;
+  background-color: #f471b9;
+  transition: width 0.3s;
 }
 
 .nav-links a:hover::after {
@@ -113,9 +109,7 @@ ul {
   display: none;
 }
 
-/* ===============================
-   HERO
-================================ */
+/* --- Hero --- */
 .hero {
   position: relative;
   padding: 7rem 0 5rem;
@@ -148,31 +142,14 @@ ul {
   color: #555;
 }
 
-.hero-badges {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.hero-badges span {
-  background: white;
-  padding: 6px 15px;
-  border-radius: 20px;
-  font-size: 0.9rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-/* ===============================
-   BUTTON
-================================ */
+/* --- Button --- */
 .btn {
+  display: inline-block;
   padding: 10px 25px;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
   transition: 0.3s;
-  border: none;
 }
 
 .btn-primary {
@@ -196,15 +173,13 @@ ul {
   color: white;
 }
 
-/* ===============================
-   SECTION
-================================ */
+/* --- Section --- */
 .section {
   padding: 5rem 0;
 }
 
 .section-light {
-  background-color: rgba(255,255,255,0.5);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .section-header {
@@ -218,29 +193,25 @@ ul {
 }
 
 /* =====================================================
-   GRID PRODUK (FIX SEJAJAR TOTAL)
+   GRID PRODUK (FIX SEJAJAR)
 ===================================================== */
 .grid.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
-  justify-items: stretch;
   align-items: stretch;
 }
 
-/* ===============================
-   CARD PRODUK
-================================ */
 .card {
   background: white;
-  border-radius: 16px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  border-radius: 15px;
   overflow: hidden;
-  width: 100%;
-  height: 100%;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s;
+
   display: flex;
   flex-direction: column;
-  transition: 0.3s;
+  height: 100%;
 }
 
 .card:hover {
@@ -254,9 +225,15 @@ ul {
   justify-content: center;
 }
 
-.card-img-1 { background: #fdfbfb; }
-.card-img-2 { background: #fff0f5; }
-.card-img-3 { background: #f0fdf4; }
+.card-img-1 {
+  background: #fdfbfb;
+}
+.card-img-2 {
+  background: #fff0f5;
+}
+.card-img-3 {
+  background: #f0fdf4;
+}
 
 .card-image img {
   height: 80%;
@@ -286,14 +263,11 @@ ul {
   color: #d946a6;
 }
 
-/* ===============================
-   TENTANG & KONTAK
-================================ */
+/* --- Tentang & Kontak --- */
 .tentang-inner,
 .kontak-inner {
   display: flex;
   gap: 3rem;
-  align-items: center;
   flex-wrap: wrap;
 }
 
@@ -309,39 +283,10 @@ ul {
   background: white;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
 }
 
-/* ===============================
-   FORM
-================================ */
-.form-group {
-  margin-bottom: 1rem;
-}
-
-.form-group label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-}
-
-.form-group input,
-.form-group textarea {
-  width: 100%;
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-  border-color: #f471b9;
-  outline: none;
-}
-
-/* ===============================
-   FOOTER
-================================ */
+/* --- Footer --- */
 .footer {
   background: #0f172a;
   color: #e5e7eb;
@@ -352,23 +297,19 @@ ul {
 .footer-tagline {
   color: #f9a8d4;
   font-size: 0.8rem;
-  margin-top: 10px;
 }
 
-/* ===============================
-   MODAL
-================================ */
+/* --- Modal --- */
 .product-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  z-index: 2000;
 }
 
 .product-modal.is-open {
@@ -382,18 +323,17 @@ ul {
   width: 90%;
   padding: 2rem;
   border-radius: 20px;
-  position: relative;
 }
 
-/* ===============================
-   RESPONSIVE
-================================ */
-@media (max-width: 768px) {
-  .nav-links {
-    display: none;
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .grid.cards {
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
-  .section {
-    padding: 3rem 0;
+@media (max-width: 600px) {
+  .grid.cards {
+    grid-template-columns: 1fr;
   }
 }
