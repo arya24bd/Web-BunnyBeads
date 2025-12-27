@@ -1,6 +1,4 @@
-/* =========================================
-   1. RESET & GLOBAL STYLES
-   ========================================= */
+/* --- Reset & Global Styles --- */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -13,7 +11,6 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  /* Background gradient tetap dipertahankan */
   background: linear-gradient(
     135deg,
     #ffd6eb 0%,
@@ -36,39 +33,34 @@ img {
 a {
   text-decoration: none;
   color: inherit;
-  transition: 0.3s;
 }
 
 ul {
   list-style: none;
 }
 
-/* PERBAIKAN: Container dibuat sedikit lebih lebar agar lega di laptop */
 .container {
   width: 100%;
-  max-width: 1200px; 
+  max-width: 1120px;
   margin: 0 auto;
-  padding: 0 1.5rem; /* Padding kiri-kanan aman untuk HP */
+  padding: 0 1.5rem;
 }
 
-/* =========================================
-   2. NAVBAR
-   ========================================= */
+/* --- Navbar --- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
-  /* PERBAIKAN: Padding navbar sedikit ditambah biar tidak gepeng */
-  padding: 1.2rem 0; 
+  padding: 1rem 0;
 }
 
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.9);
   padding: 0.8rem 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -82,9 +74,7 @@ ul {
 .logo {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #333;
 }
-
 .logo span {
   color: #f471b9;
 }
@@ -98,7 +88,6 @@ ul {
   font-weight: 500;
   color: #4a4a4a;
   position: relative;
-  font-size: 1rem;
 }
 
 .nav-links a::after {
@@ -119,7 +108,7 @@ ul {
 .nav-toggle {
   display: none;
   flex-direction: column;
-  gap: 6px; /* Jarak antar garis burger menu */
+  gap: 5px;
   background: transparent;
   border: none;
   cursor: pointer;
@@ -127,20 +116,17 @@ ul {
 }
 
 .nav-toggle span {
-  width: 28px;
+  width: 25px;
   height: 3px;
   background: #4a4a4a;
   border-radius: 3px;
   transition: all 0.3s;
 }
 
-/* =========================================
-   3. HERO SECTION
-   ========================================= */
+/* --- Hero --- */
 .hero {
   position: relative;
-  /* PERBAIKAN: Padding top ditambah agar tidak ketutup navbar */
-  padding: 9rem 0 5rem; 
+  padding: 7rem 0 5rem;
   text-align: center;
   overflow: hidden;
 }
@@ -158,15 +144,13 @@ ul {
   filter: blur(10px);
   transform: scale(1.1);
   z-index: -1;
-  opacity: 0.6; /* Sedikit diturunkan agar teks lebih terbaca */
 }
 
 .hero-text h1 {
-  font-size: 3.5rem; /* Font lebih besar */
+  font-size: 3rem;
   margin-bottom: 1.5rem;
   line-height: 1.2;
   font-weight: 700;
-  color: #2d3436;
 }
 
 .hero-text h1 span {
@@ -174,18 +158,26 @@ ul {
 }
 
 .hero-text p {
-  max-width: 650px;
-  margin: 0 auto 2.5rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
   color: #555;
-  font-size: 1.15rem;
-  line-height: 1.8;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  text-align: center;
+  word-spacing: 0.1em;
+  letter-spacing: 0.01em;
 }
 
 .hero-center {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem; /* Jarak antara tombol dan badges */
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.hero-actions {
+  margin-bottom: 0;
 }
 
 .hero-badges {
@@ -193,51 +185,43 @@ ul {
   gap: 1rem;
   flex-wrap: wrap;
   justify-content: center;
+  margin-top: 0.5rem;
 }
 
 .hero-badges span {
-  background: #fff;
+  background: rgba(255, 255, 255, 0.9);
   padding: 0.6rem 1.2rem;
-  border-radius: 50px;
-  font-size: 0.95rem;
-  color: #555;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  font-weight: 500;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: #4a4a4a;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  white-space: nowrap;
 }
 
-/* =========================================
-   4. BUTTONS
-   ========================================= */
+/* --- Button --- */
 .btn {
   display: inline-block;
-  /* PERBAIKAN: Padding tombol lebih proporsional */
-  padding: 12px 32px; 
+  padding: 10px 25px;
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
-  font-size: 1rem;
-  border: none;
+  transition: 0.3s;
 }
 
 .btn-primary {
   background: #f471b9;
   color: white;
-  box-shadow: 0 4px 15px rgba(244, 113, 185, 0.4);
 }
 
 .btn-primary:hover {
   background: #d946a6;
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(244, 113, 185, 0.6);
 }
 
 .btn-outline {
-  border: 2px solid #f471b9;
+  border: 1px solid #f471b9;
   color: #f471b9;
   background: transparent;
-  padding: 8px 20px; /* Sedikit lebih kecil untuk tombol detail */
-  font-size: 0.9rem;
 }
 
 .btn-outline:hover {
@@ -245,34 +229,24 @@ ul {
   color: white;
 }
 
-.btn-full {
-  width: 100%;
-}
-
-/* =========================================
-   5. SECTIONS & HEADERS
-   ========================================= */
+/* --- Section --- */
 .section {
-  /* PERBAIKAN: Konsistensi padding atas bawah */
-  padding: 6rem 0; 
+  padding: 5rem 0;
 }
 
 .section-light {
-  background-color: rgba(255, 255, 255, 0.6);
-  border-radius: 30px; /* Opsional: memberi lengkungan pada background section */
-  margin: 2rem 0;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .section-header {
   text-align: center;
-  margin-bottom: 4rem; /* Jarak header ke konten diperlebar */
+  margin-bottom: 3rem;
 }
 
 .section-header h2 {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   color: #d946a6;
-  margin-bottom: 1rem;
-  font-weight: 700;
+  margin-bottom: 0.5rem;
 }
 
 .section-header p {
@@ -282,79 +256,88 @@ ul {
   margin: 0 auto;
 }
 
-/* =========================================
-   6. GRID PRODUK (CARD)
-   ========================================= */
+/* =====================================================
+   GRID PRODUK (FIX SEJAJAR - 3 KOLOM PER BARIS)
+===================================================== */
 .grid.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  /* PERBAIKAN: Gap antar kartu diperbesar agar tidak nempel */
-  gap: 2.5rem; 
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   align-items: stretch;
+  width: 100%;
+  margin: 0 auto;
+  grid-auto-rows: 1fr;
+}
+
+/* Pastikan grid tetap 3 kolom di layar besar */
+@media (min-width: 769px) {
+  .grid.cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    grid-auto-rows: 1fr;
+  }
 }
 
 .card {
   background: white;
-  border-radius: 20px; /* Radius lebih smooth */
+  border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
+  width: 100%;
   height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.8);
 }
 
 .card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(244, 113, 185, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .card-image {
-  height: 280px; /* Tinggi gambar diperbesar sedikit */
+  height: 250px;
+  min-height: 250px;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   overflow: hidden;
-  padding: 2rem; /* Padding dalam gambar */
+  flex-shrink: 0;
 }
 
-.card-img-1 { background: linear-gradient(to bottom, #fdfbfb, #f7f7f7); }
-.card-img-2 { background: linear-gradient(to bottom, #fff0f5, #fff5f8); }
-.card-img-3 { background: linear-gradient(to bottom, #f0fdf4, #f7fff9); }
+.card-img-1 {
+  background: #fdfbfb;
+}
+.card-img-2 {
+  background: #fff0f5;
+}
+.card-img-3 {
+  background: #f0fdf4;
+}
 
 .card-image img {
-  max-height: 100%;
+  height: 80%;
   width: auto;
+  max-width: 90%;
   object-fit: contain;
-  transition: transform 0.5s ease;
-}
-
-.card:hover .card-image img {
-  transform: scale(1.05);
+  display: block;
 }
 
 .card-body {
-  /* PERBAIKAN: Padding dalam kartu diperbesar */
-  padding: 1.8rem; 
+  padding: 1.5rem;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
+  min-height: 140px;
 }
 
 .card h3 {
-  margin-bottom: 0.8rem;
-  font-size: 1.35rem;
-  color: #2d3436;
-  font-weight: 600;
-}
-
-.card-desc {
-    /* Jika ditampilkan nanti */
-    font-size: 0.95rem;
-    color: #888;
-    margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: #1f1f2e;
+  line-height: 1.3;
+  min-height: 1.3em;
 }
 
 .card-footer {
@@ -363,54 +346,62 @@ ul {
   justify-content: space-between;
   align-items: center;
   padding-top: 1rem;
-  border-top: 1px dashed #eee; /* Garis pemisah halus */
+  flex-shrink: 0;
 }
 
 .price {
-  font-weight: 700;
+  font-weight: bold;
   color: #d946a6;
-  font-size: 1.1rem;
 }
 
-/* =========================================
-   7. TENTANG & KONTAK
-   ========================================= */
+/* --- Tentang & Kontak --- */
 .tentang-inner,
 .kontak-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 4rem; /* Jarak antar kolom lebih lega */
-  align-items: center;
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.tentang-text,
+.kontak-text {
+  flex: 1;
+  min-width: 300px;
 }
 
 .tentang-text h2,
 .kontak-text h2 {
   font-size: 2.2rem;
   color: #d946a6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
+  line-height: 1.3;
   font-weight: 700;
 }
 
 .tentang-text p,
 .kontak-text p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   color: #555;
-  font-size: 1.05rem;
+  line-height: 1.7;
+  text-align: left;
+  font-size: 1rem;
 }
 
-.list li {
+.tentang-text .list {
+  margin-top: 1.5rem;
+}
+
+.tentang-text .list li {
   margin-bottom: 0.8rem;
+  color: #555;
   font-size: 1rem;
-  display: flex;
-  align-items: center;
-  gap: 10px;
 }
 
 .tentang-card {
+  flex: 1;
   background: white;
-  padding: 3rem; /* Padding box statistik diperbesar */
+  padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
   gap: 2rem;
@@ -419,9 +410,8 @@ ul {
 .stat {
   text-align: center;
   padding: 1.5rem;
-  background: #fff9fc;
+  background: linear-gradient(135deg, #fef4fb 0%, #fff0f5 100%);
   border-radius: 15px;
-  border: 1px solid #ffeef5;
 }
 
 .stat-number {
@@ -429,79 +419,91 @@ ul {
   font-size: 2.5rem;
   font-weight: 700;
   color: #f471b9;
+  margin-bottom: 0.5rem;
 }
 
-/* FORM STYLES */
+.stat-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #666;
+}
+
 .kontak-form {
+  flex: 1;
   background: white;
-  padding: 2.5rem;
+  padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
 }
 
 .form-group {
   margin-bottom: 1.5rem;
+  width: 100%;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
-  color: #333;
+  color: #4a4a4a;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  /* PERBAIKAN: Input padding diperbesar biar enak diklik */
-  padding: 1rem 1.2rem; 
-  border: 2px solid #eee;
-  border-radius: 12px;
-  font-family: inherit;
+  padding: 0.75rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 10px;
+  font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  transition: 0.3s;
-  background: #f9f9f9;
+  transition: border-color 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #f471b9;
-  background: #fff;
-  box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.1);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.btn-full {
+  width: 100%;
+  text-align: center;
 }
 
 .contact-chips {
   display: flex;
-  gap: 1rem;
-  margin-top: 2rem;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
   flex-wrap: wrap;
 }
 
 .chip {
-  padding: 0.8rem 1.5rem;
-  background: #fff;
-  border: 1px solid #f471b9;
-  color: #f471b9;
-  border-radius: 50px;
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: #f471b9;
+  color: white;
+  border-radius: 25px;
   font-weight: 500;
   transition: all 0.3s;
 }
 
 .chip:hover {
-  background: #f471b9;
-  color: white;
+  background: #d946a6;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(244, 113, 185, 0.3);
 }
 
-/* =========================================
-   8. FOOTER (Major Fix)
-   ========================================= */
+/* --- Footer --- */
 .footer {
-  background: #fff; /* Footer putih agar clean */
-  border-top: 1px solid #eee;
-  color: #333;
-  /* PERBAIKAN: Padding footer diperbesar, jangan dibuat kecil */
-  padding: 4rem 0 2rem; 
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 20px 0 10px;
   text-align: center;
 }
 
@@ -509,84 +511,92 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.6rem;
+}
+
+.social-media {
+  width: 100%;
 }
 
 .social-media h3 {
-  margin-bottom: 1.5rem;
-  color: #d946a6;
-  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #e5e7eb;
+  font-size: 0.95rem;
   font-weight: 600;
-  letter-spacing: 1px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 2rem; /* Jarak antar icon */
-  margin-bottom: 2rem;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.2rem;
 }
 
 .social-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  color: #666;
-  transition: 0.3s;
+  gap: 0.3rem;
+  text-decoration: none;
+  color: #e5e7eb;
+  transition: transform 0.3s;
+}
+
+.social-icon:hover {
+  transform: translateY(-5px);
 }
 
 .icon-circle {
-  width: 50px; /* Ukuran icon standar */
-  height: 50px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background: #fff;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: all 0.3s;
+  transition: background 0.3s;
 }
 
 .social-icon:hover .icon-circle {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(244, 113, 185, 0.3);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .icon-circle img {
   width: 24px;
   height: 24px;
+  object-fit: contain;
 }
 
-.footer p {
-  color: #888;
-  font-size: 0.9rem;
-}
-
-.footer-tagline {
-  color: #f471b9;
-  font-size: 0.85rem;
-  margin-top: 0.5rem;
+.social-label {
+  font-size: 0.65rem;
   font-weight: 500;
 }
 
-/* =========================================
-   9. MODAL & TOAST
-   ========================================= */
-/* Style Modal & Toast (Sama, hanya penyesuaian minor padding) */
+.footer p {
+  margin: 0.1rem 0;
+  color: #9ca3af;
+  font-size: 0.75rem;
+}
+
+.footer-tagline {
+  color: #f9a8d4;
+  font-size: 0.7rem;
+  margin-top: 0.15rem;
+}
+
+/* --- Modal --- */
 .product-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
   justify-content: center;
   opacity: 0;
   visibility: hidden;
   transition: 0.3s;
-  z-index: 2000;
-  padding: 1rem; /* Padding luar di HP */
 }
 
 .product-modal.is-open {
@@ -594,27 +604,96 @@ ul {
   visibility: visible;
 }
 
+.product-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: transparent;
+}
+
 .product-modal-dialog {
   background: white;
   max-width: 500px;
-  width: 100%;
-  padding: 2.5rem;
+  width: 90%;
+  padding: 2rem;
   border-radius: 20px;
   position: relative;
   z-index: 10;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+}
+
+.product-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #999;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.3s;
+}
+
+.product-modal-close:hover {
+  background: #f5f5f5;
+  color: #333;
 }
 
 .product-modal-image-wrapper {
-  background: #f8f8f8;
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  background: #f9f9f9;
   border-radius: 15px;
-  padding: 1rem;
+  overflow: hidden;
+}
+
+.product-modal-image {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.product-modal-title {
+  font-size: 1.8rem;
+  color: #1f1f2e;
+  margin-bottom: 1rem;
+}
+
+.product-modal-price-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   margin-bottom: 1.5rem;
 }
 
-/* Toast */
+.product-modal-price-label {
+  font-weight: 500;
+  color: #666;
+}
+
+.product-modal-price {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f471b9;
+}
+
+.product-modal-description {
+  color: #555;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+/* --- Notification Toast --- */
 .notification-toast {
   position: fixed;
   bottom: 2rem;
@@ -622,92 +701,278 @@ ul {
   background: white;
   padding: 1.5rem;
   border-radius: 15px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
   display: flex;
   align-items: center;
   gap: 1rem;
-  z-index: 2000;
+  max-width: 400px;
   opacity: 0;
-  visibility: hidden;
   transform: translateY(20px);
-  transition: 0.3s;
-  border-left: 5px solid #10b981;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 2000;
 }
 
 .notification-toast.show {
   opacity: 1;
-  visibility: visible;
   transform: translateY(0);
+  visibility: visible;
 }
 
-/* =========================================
-   10. RESPONSIVE (MEDIA QUERIES)
-   ========================================= */
+.notification-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #10b981;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  flex-shrink: 0;
+}
 
-/* Tablet & Laptop Kecil */
+.notification-text {
+  flex: 1;
+}
+
+.notification-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1f1f2e;
+  margin-bottom: 0.3rem;
+}
+
+.notification-message {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.notification-close {
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #999;
+  cursor: pointer;
+  padding: 0;
+  width: 25px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: color 0.3s;
+}
+
+.notification-close:hover {
+  color: #333;
+}
+
+/* --- Responsive --- */
 @media (max-width: 1024px) {
-  .hero-text h1 { font-size: 2.8rem; }
-  .grid.cards { gap: 1.5rem; }
+  .grid.cards {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2.5rem;
+  }
+
+  .section-header h2 {
+    font-size: 2rem;
+  }
 }
 
-/* Mobile Devices */
 @media (max-width: 768px) {
-  /* Navbar */
+  .grid.cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
   .nav-links {
-    position: absolute;
-    top: 100%;
+    position: fixed;
+    top: 70px;
     left: 0;
     right: 0;
-    background: white;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(12px);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-100%);
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s;
+    transition: all 0.3s ease;
   }
-  
+
   .nav-links.show {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
   }
 
-  .nav-toggle { display: flex; }
-
-  /* Hero */
-  .hero { padding-top: 8rem; }
-  .hero-text h1 { font-size: 2.2rem; }
-  
-  /* Layout Umum */
-  .tentang-inner, .kontak-inner {
-    grid-template-columns: 1fr;
-    gap: 2.5rem;
+  .nav-toggle {
+    display: flex;
   }
-  
-  /* Padding Section di HP dikurangi tapi tidak terlalu sempit */
-  .section { padding: 4rem 0; }
-  
-  .footer { padding: 3rem 0 1.5rem; }
-}
 
-/* Mobile Kecil */
-@media (max-width: 600px) {
-  .grid.cards {
-    grid-template-columns: 1fr; /* 1 kolom di HP */
+  .hero {
+    padding: 5rem 0 3rem;
+  }
+
+  .hero-text h1 {
+    font-size: 2rem;
+  }
+
+  .hero-badges {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .hero-badges span {
+    width: 100%;
+    text-align: center;
+  }
+
+  .section {
+    padding: 3rem 0;
+  }
+
+  .tentang-inner,
+  .kontak-inner {
+    flex-direction: column;
     gap: 2rem;
   }
-  
-  .section-header h2 { font-size: 1.8rem; }
-  
-  .hero-badges { flex-direction: column; gap: 0.8rem; }
-  .hero-badges span { width: 100%; text-align: center; }
-  
-  .contact-chips { justify-content: center; }
-  
-  /* PERBAIKAN: Jangan mengecilkan footer terlalu ekstrim */
-  .social-links { gap: 1.5rem; }
-  .icon-circle { width: 45px; height: 45px; }
+
+  .social-links {
+    gap: 1.5rem;
+  }
+
+  .notification-toast {
+    right: 1rem;
+    left: 1rem;
+    max-width: none;
+  }
+
+  .footer {
+    padding: 15px 0 8px;
+  }
+
+  .footer-inner {
+    gap: 0.5rem;
+  }
+
+  .social-media h3 {
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+  }
+
+  .social-links {
+    gap: 0.5rem;
+  }
+
+  .icon-circle {
+    width: 32px;
+    height: 32px;
+  }
+
+  .icon-circle img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .social-label {
+    font-size: 0.6rem;
+  }
+
+  .footer p {
+    font-size: 0.7rem;
+    margin: 0.08rem 0;
+  }
+
+  .footer-tagline {
+    font-size: 0.65rem;
+    margin-top: 0.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .grid.cards {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .tentang-text h2,
+  .kontak-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .card-image {
+    height: 200px;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .icon-circle {
+    width: 45px;
+    height: 45px;
+  }
+
+  .icon-circle img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer {
+    padding: 12px 0 6px;
+  }
+
+  .footer-inner {
+    gap: 0.4rem;
+  }
+
+  .social-media h3 {
+    margin-bottom: 0.3rem;
+    font-size: 0.85rem;
+  }
+
+  .social-links {
+    gap: 0.4rem;
+  }
+
+  .icon-circle {
+    width: 30px;
+    height: 30px;
+  }
+
+  .icon-circle img {
+    width: 20px;
+    height: 20px;
+  }
+
+  .social-label {
+    font-size: 0.55rem;
+  }
+
+  .footer p {
+    font-size: 0.65rem;
+    margin: 0.05rem 0;
+  }
+
+  .footer-tagline {
+    font-size: 0.6rem;
+    margin-top: 0.08rem;
+  }
 }
