@@ -164,6 +164,8 @@ ul {
   font-size: 1.1rem;
   line-height: 1.7;
   text-align: center;
+  word-spacing: 0.1em;
+  letter-spacing: 0.01em;
 }
 
 .hero-center {
@@ -261,9 +263,10 @@ ul {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
-  align-items: start;
+  align-items: stretch;
   width: 100%;
   margin: 0 auto;
+  grid-auto-rows: 1fr;
 }
 
 /* Pastikan grid tetap 3 kolom di layar besar */
@@ -271,6 +274,7 @@ ul {
   .grid.cards {
     grid-template-columns: repeat(3, 1fr);
     gap: 1.5rem;
+    grid-auto-rows: 1fr;
   }
 }
 
@@ -283,7 +287,7 @@ ul {
   display: flex;
   flex-direction: column;
   width: 100%;
-  min-height: 100%;
+  height: 100%;
 }
 
 .card:hover {
@@ -368,17 +372,18 @@ ul {
 .kontak-text h2 {
   font-size: 2.2rem;
   color: #d946a6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.2rem;
   line-height: 1.3;
   font-weight: 700;
 }
 
 .tentang-text p,
 .kontak-text p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   color: #555;
-  line-height: 1.8;
+  line-height: 1.7;
   text-align: left;
+  font-size: 1rem;
 }
 
 .tentang-text .list {
@@ -473,8 +478,8 @@ ul {
 
 .contact-chips {
   display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 0.8rem;
+  margin-top: 1.2rem;
   flex-wrap: wrap;
 }
 
@@ -498,7 +503,7 @@ ul {
 .footer {
   background: #0f172a;
   color: #e5e7eb;
-  padding: 30px 0 15px;
+  padding: 25px 0 12px;
   text-align: center;
 }
 
@@ -506,7 +511,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 0.8rem;
 }
 
 .social-media {
@@ -514,25 +519,25 @@ ul {
 }
 
 .social-media h3 {
-  margin-bottom: 0.8rem;
+  margin-bottom: 0.6rem;
   color: #e5e7eb;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.8rem;
   flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
 }
 
 .social-icon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   text-decoration: none;
   color: #e5e7eb;
   transition: transform 0.3s;
@@ -543,8 +548,8 @@ ul {
 }
 
 .icon-circle {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
@@ -559,26 +564,26 @@ ul {
 }
 
 .icon-circle img {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   object-fit: contain;
 }
 
 .social-label {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 500;
 }
 
 .footer p {
-  margin: 0.2rem 0;
+  margin: 0.15rem 0;
   color: #9ca3af;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
 }
 
 .footer-tagline {
   color: #f9a8d4;
-  font-size: 0.8rem;
-  margin-top: 0.3rem;
+  font-size: 0.75rem;
+  margin-top: 0.2rem;
 }
 
 /* --- Modal --- */
@@ -852,34 +857,44 @@ ul {
   }
 
   .footer {
-    padding: 25px 0 12px;
+    padding: 20px 0 10px;
   }
 
   .footer-inner {
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .social-media h3 {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
   }
 
   .social-links {
-    gap: 0.8rem;
+    gap: 0.6rem;
   }
 
   .icon-circle {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
   }
 
   .icon-circle img {
-    width: 28px;
-    height: 28px;
+    width: 26px;
+    height: 26px;
   }
 
   .social-label {
+    font-size: 0.65rem;
+  }
+
+  .footer p {
+    font-size: 0.75rem;
+    margin: 0.1rem 0;
+  }
+
+  .footer-tagline {
     font-size: 0.7rem;
+    margin-top: 0.15rem;
   }
 }
 
@@ -921,43 +936,43 @@ ul {
   }
 
   .footer {
-    padding: 20px 0 10px;
+    padding: 18px 0 8px;
   }
 
   .footer-inner {
-    gap: 0.8rem;
+    gap: 0.5rem;
   }
 
   .social-media h3 {
-    margin-bottom: 0.6rem;
-    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
   }
 
   .social-links {
-    gap: 0.6rem;
+    gap: 0.5rem;
   }
 
   .icon-circle {
-    width: 38px;
-    height: 38px;
+    width: 35px;
+    height: 35px;
   }
 
   .icon-circle img {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
 
   .social-label {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
   }
 
   .footer p {
-    font-size: 0.8rem;
-    margin: 0.15rem 0;
+    font-size: 0.75rem;
+    margin: 0.1rem 0;
   }
 
   .footer-tagline {
-    font-size: 0.75rem;
-    margin-top: 0.2rem;
+    font-size: 0.7rem;
+    margin-top: 0.1rem;
   }
 }
