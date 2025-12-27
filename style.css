@@ -249,17 +249,19 @@ ul {
 }
 
 /* =====================================================
-   GRID PRODUK (FIX SEJAJAR)
+   GRID PRODUK (FIX SEJAJAR - 3 KOLOM PER BARIS)
 ===================================================== */
 .grid.cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  gap: 1.5rem;
   align-items: stretch;
   width: 100%;
+  margin: 0 auto;
 }
 
-@media (min-width: 1025px) {
+/* Pastikan grid tetap 3 kolom di layar besar */
+@media (min-width: 769px) {
   .grid.cards {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -476,7 +478,7 @@ ul {
 .footer {
   background: #0f172a;
   color: #e5e7eb;
-  padding: 60px 0 30px;
+  padding: 40px 0 20px;
   text-align: center;
 }
 
@@ -484,7 +486,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .social-media {
@@ -492,15 +494,15 @@ ul {
 }
 
 .social-media h3 {
-  margin-bottom: 2rem;
+  margin-bottom: 1.2rem;
   color: #e5e7eb;
-  font-size: 1.5rem;
+  font-size: 1.3rem;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   flex-wrap: wrap;
 }
 
@@ -519,8 +521,8 @@ ul {
 }
 
 .icon-circle {
-  width: 60px;
-  height: 60px;
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
@@ -535,25 +537,26 @@ ul {
 }
 
 .icon-circle img {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   object-fit: contain;
 }
 
 .social-label {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 500;
 }
 
 .footer p {
-  margin: 0.5rem 0;
+  margin: 0.3rem 0;
   color: #9ca3af;
+  font-size: 0.9rem;
 }
 
 .footer-tagline {
   color: #f9a8d4;
-  font-size: 0.9rem;
-  margin-top: 1rem;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
 }
 
 /* --- Modal --- */
@@ -742,8 +745,8 @@ ul {
 /* --- Responsive --- */
 @media (max-width: 1024px) {
   .grid.cards {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
   }
 
   .hero-text h1 {
@@ -756,6 +759,11 @@ ul {
 }
 
 @media (max-width: 768px) {
+  .grid.cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
   .nav-links {
     position: fixed;
     top: 70px;
@@ -820,6 +828,19 @@ ul {
     left: 1rem;
     max-width: none;
   }
+
+  .footer {
+    padding: 30px 0 15px;
+  }
+
+  .footer-inner {
+    gap: 1rem;
+  }
+
+  .social-media h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -850,12 +871,25 @@ ul {
   }
 
   .icon-circle {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
 
   .icon-circle img {
-    width: 35px;
-    height: 35px;
+    width: 30px;
+    height: 30px;
+  }
+
+  .footer {
+    padding: 25px 0 12px;
+  }
+
+  .footer-inner {
+    gap: 1rem;
+  }
+
+  .social-media h3 {
+    margin-bottom: 0.8rem;
+    font-size: 1.1rem;
   }
 }
