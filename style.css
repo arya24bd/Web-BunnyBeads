@@ -23,12 +23,10 @@ body {
   color: #1f1f2e;
   line-height: 1.6;
   min-height: 100vh;
-  /* Flex Column untuk mendorong footer ke bawah dengan rapi (No Gap) */
   display: flex;
   flex-direction: column;
 }
 
-/* Memastikan konten mengisi ruang yang ada */
 main {
   flex: 1;
   width: 100%;
@@ -56,7 +54,7 @@ ul {
   padding: 0 1.5rem;
 }
 
-/* --- Navbar (Diperbesar agar pas) --- */
+/* --- Navbar --- */
 .navbar {
   position: sticky;
   top: 0;
@@ -72,7 +70,7 @@ ul {
 }
 
 .navbar.scrolled {
-  padding: 0.8rem 0; /* Mengecil sedikit saat discroll */
+  padding: 0.8rem 0;
   box-shadow: 0 4px 20px rgba(0,0,0,0.1);
 }
 
@@ -91,7 +89,6 @@ ul {
   display: flex;
   align-items: center;
   letter-spacing: -0.5px;
-  /* Warna teks 'Bunny' jadi Pink agar tidak putih polos */
   color: #f471b9;
 }
 
@@ -193,39 +190,28 @@ ul {
   text-align: center;
 }
 
-/* FIX CENTER BUTTON & BADGES */
-/* --- Update Bagian Ini di style.css --- */
-
-/* 1. Wadah pembungkus tombol & badges */
-/* --- Update Bagian Hero Center & Badges (Versi Fix) --- */
-
+/* === PERBAIKAN POSISI BADGES (FINAL FIX) === */
 .hero-center {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* KUNCI: Memaksa semua anak elemen (termasuk badges) tepat di tengah axis */
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 2rem;
-  width: 100%;
+  align-items: center; /* Pastikan container tombol di tengah */
+  gap: 2rem; /* Jarak lebih lega antara tombol dan badges */
+  margin-top: 1rem;
+  width: 100%; 
 }
 
 .hero-badges {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  
-  /* PERUBAHAN PENTING DI SINI: */
-  width: auto;       /* Jangan 100%, biarkan wadahnya pas dengan isinya */
-  max-width: 100%;   /* Agar tidak melebihi layar HP */
-  margin: 0 auto;    /* Pastikan wadah ini sendiri punya margin otomatis di kiri-kanan */
-  padding: 0;        /* Hapus padding tak terlihat */
+  /* Trik Ampuh: Gunakan text-align center pada container block */
+  display: block;
+  text-align: center;
+  width: 100%;
+  padding: 0 1rem; /* Padding kiri kanan agar tidak mentok di layar HP kecil */
 }
 
-/* Memastikan bentuk badges tetap rapi */
 .hero-badges span {
+  /* Ubah jadi inline-block agar patuh pada text-align center induknya */
   display: inline-block;
+  margin: 0.5rem; /* Gunakan margin untuk jarak antar badge */
   background: rgba(255, 255, 255, 0.9);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
@@ -235,6 +221,7 @@ ul {
   border: 1px solid rgba(255,255,255,0.8);
   white-space: nowrap;
 }
+/* === END PERBAIKAN BADGES === */
 
 /* --- Button --- */
 .btn {
@@ -245,7 +232,16 @@ ul {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
+  border: none; /* Pastikan tidak ada border bawaan */
 }
+
+/* === PERBAIKAN GARIS HITAM TOMBOL === */
+.btn:focus {
+    outline: none; /* Hapus garis hitam default browser */
+    /* Gantinya, beri efek shadow pink halus saat diklik/dipilih */
+    box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.3); 
+}
+/* === END PERBAIKAN TOMBOL === */
 
 .btn-primary {
   background: #f471b9;
@@ -310,9 +306,7 @@ ul {
   margin: 0 auto;
 }
 
-/* =====================================================
-   GRID PRODUK
-===================================================== */
+/* --- GRID PRODUK --- */
 .grid.cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -494,12 +488,13 @@ ul {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   transition: border-color 0.3s;
+/* TAMBAHAN: Hapus outline di input juga saat diklik */
 }
-
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
   border-color: #f471b9;
+  box-shadow: 0 0 0 3px rgba(244, 113, 185, 0.2); /* Tambah shadow pink di input juga */
 }
 
 .btn-full {
@@ -531,7 +526,7 @@ ul {
   box-shadow: 0 4px 12px rgba(244, 113, 185, 0.3);
 }
 
-/* --- Footer (DIKECILKAN / COMPACT) --- */
+/* --- Footer --- */
 .footer {
   background: #0f172a;
   color: #e5e7eb;
@@ -594,15 +589,14 @@ ul {
   background: rgba(255, 255, 255, 0.25);
 }
 
-/* GANTI IMAGE DENGAN FONT ICON AGAR TIDAK ADA KOTAK PUTIH */
 .icon-circle i {
-  font-size: 1.5rem; /* Ukuran ikon pas */
-  color: #e5e7eb;    /* Warna putih tulang */
+  font-size: 1.5rem;
+  color: #e5e7eb;
   transition: color 0.3s ease;
 }
 
 .social-icon:hover .icon-circle i {
-  color: #ffffff;    /* Putih terang saat hover */
+  color: #ffffff;
 }
 
 .social-label {
@@ -629,7 +623,7 @@ ul {
   font-style: italic;
 }
 
-/* --- Modal & Notification (Tetap sama) --- */
+/* --- Modal & Notification --- */
 .product-modal {
   position: fixed;
   inset: 0;
