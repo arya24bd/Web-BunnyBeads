@@ -195,24 +195,30 @@ ul {
   text-align: center;
 }
 
+/* Update bagian ini di style.css */
+
 .hero-center {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: column; /* Susun tombol dan badges ke bawah */
+  align-items: center;    /* Pastikan semua elemen (tombol & badges) pas di tengah secara horizontal */
+  justify-content: center;
   gap: 1.5rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
+  width: 100%;            /* PENTING: Paksa container ambil lebar penuh agar 'center' nya akurat */
 }
 
 .hero-badges {
   display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1rem;
+  gap: 1rem;              /* Jarak antar badges */
+  flex-wrap: wrap;        /* Agar turun ke bawah jika layar sempit (HP) */
+  justify-content: center;/* Pastikan teks/badges di dalam container ini rata tengah */
+  align-items: center;
+  width: 100%;            /* Container badges mengambil lebar penuh */
+  margin: 0 auto;         /* Pastikan container badges berada di tengah */
 }
 
 .hero-badges span {
-  background: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.9);
   padding: 0.6rem 1.2rem;
   border-radius: 20px;
   font-size: 0.9rem;
