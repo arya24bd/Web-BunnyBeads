@@ -52,52 +52,64 @@ ul {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.8); /* Sedikit lebih transparan */
+  background: rgba(255, 255, 255, 0.9); /* Sedikit lebih solid agar rapi */
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
-  padding: 1.2rem 0; /* Jarak atas-bawah diperbesar agar logo tidak sesak */
+  
+  /* PENTING: Menggunakan padding yang pas dan line-height nol di parent */
+  padding: 0.8rem 0; 
+  display: flex;
+  align-items: center; /* Memaksa konten benar-benar di tengah secara vertikal */
 }
 
-/* Saat di-scroll, navbar sedikit mengecil agar konten lebih luas */
-.navbar.scrolled {
-  background: rgba(255, 255, 255, 0.95);
-  padding: 0.8rem 0;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-}
-
+/* Container dalam navbar */
 .nav-inner {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  align-items: center; /* Logo dan Menu sejajar vertikal */
+  justify-content: space-between; /* Logo di kiri, Menu di kanan */
+  width: 100%; /* Pastikan container memenuhi lebar */
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-size: 1.5rem; /* Ukuran sedikit dikecilkan agar proporsional */
   font-weight: 800;
+  /* FIX UTAMA: Reset line-height agar logo tidak punya margin hantu di bawahnya */
+  line-height: 1; 
+  display: flex;
+  align-items: center;
+  color: #1f1f2e;
 }
+
 .logo span {
   color: #f471b9;
 }
 
 .nav-links {
   display: flex;
-  gap: 2.5rem;
+  gap: 2rem; /* Jarak antar menu dirapatkan (sebelumnya 2.5rem terlalu lebar) */
+  align-items: center;
+  margin: 0; /* Pastikan tidak ada margin bawaan */
 }
 
 .nav-links a {
   font-weight: 500;
+  font-size: 0.95rem; /* Ukuran font menu disesuaikan */
   color: #4a4a4a;
   position: relative;
+  transition: color 0.3s;
+  /* Tambahan: padding kecil untuk area klik yang lebih baik */
+  padding: 5px 0;
 }
 
+/* Garis bawah pink saat hover */
 .nav-links a::after {
   content: "";
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
   background-color: #f471b9;
   transition: width 0.3s;
@@ -106,7 +118,6 @@ ul {
 .nav-links a:hover::after {
   width: 100%;
 }
-
 .nav-toggle {
   display: none;
   flex-direction: column;
@@ -857,23 +868,37 @@ ul {
     max-width: none;
   }
 
-  .footer {
-    padding: 25px 0 12px;
-  }
+  /* --- Footer --- */
+.footer {
+  background: #0f172a;
+  color: #e5e7eb;
+  /* Memberikan ruang napas yang cukup di atas dan bawah */
+  padding: 3rem 0 2rem; 
+  text-align: center;
+  margin-top: auto; /* Memastikan footer selalu di bawah jika konten sedikit */
+}
 
-  .footer-inner {
-    gap: 0.8rem;
-  }
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem; /* Jarak antar elemen footer yang konsisten */
+}
 
-  .social-media h3 {
-    margin-bottom: 0.8rem;
-    font-size: 1rem;
-  }
+.social-media h3 {
+  margin-bottom: 1rem;
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
 
-  .social-links {
-    gap: 0.8rem;
-  }
-
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
   .icon-circle {
     width: 40px;
     height: 40px;
