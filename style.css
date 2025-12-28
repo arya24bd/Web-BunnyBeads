@@ -47,20 +47,22 @@ ul {
 }
 
 /* --- Navbar --- */
+/* --- Navbar --- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8); /* Sedikit lebih transparan */
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
   transition: all 0.3s ease;
-  padding: 1rem 0;
+  padding: 1.2rem 0; /* Jarak atas-bawah diperbesar agar logo tidak sesak */
 }
 
+/* Saat di-scroll, navbar sedikit mengecil agar konten lebih luas */
 .navbar.scrolled {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   padding: 0.8rem 0;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -498,15 +500,14 @@ ul {
 .footer {
   background: #0f172a;
   color: #e5e7eb;
-  padding: 30px 0 15px;
+  padding: 4rem 0 2rem; /* Atas 4rem, Bawah 2rem (Jauh lebih rapi) */
   text-align: center;
 }
-
 .footer-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  gap: 1.5rem; /* Jarak antar elemen diperbesar */
 }
 
 .social-media {
@@ -523,9 +524,8 @@ ul {
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-bottom: 0.5rem;
+  gap: 1.2rem; /* Jarak antar icon medsos */
+  margin-bottom: 1rem;
 }
 
 .social-icon {
@@ -570,9 +570,10 @@ ul {
 }
 
 .footer p {
-  margin: 0.2rem 0;
+  margin: 0.5rem 0;
   color: #9ca3af;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
 .footer-tagline {
@@ -787,20 +788,25 @@ ul {
   }
 
   .nav-links {
-    position: fixed;
-    top: 70px;
+    position: absolute; /* Ganti fixed menjadi absolute agar nempel di header */
+    top: 100%; /* Posisi pas di garis bawah header */
     left: 0;
-    right: 0;
+    width: 100%; /* Lebar penuh */
     background: rgba(255, 255, 255, 0.98);
-    backdrop-filter: blur(12px);
+    backdrop-filter: blur(15px);
     flex-direction: column;
     padding: 2rem;
     gap: 1.5rem;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    transform: translateY(-100%);
+    
+    /* Border & Shadow agar menu terlihat terpisah dari konten */
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    
+    /* Animasi muncul yang lebih halus */
+    transform: translateY(-20px); 
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   .nav-links.show {
