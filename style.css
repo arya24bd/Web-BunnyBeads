@@ -191,31 +191,36 @@ ul {
 }
 
 /* === PERBAIKAN BADGES (FINAL LOCKING STRATEGY) === */
+/* --- UPDATE FIX TENGAH (PASTI PRESISI) --- */
+
 .hero-center {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: center;    /* Pastikan tombol 'Lihat Koleksi' di tengah */
   justify-content: center;
   gap: 2rem;
-  margin-top: 1rem;
-  width: 100%;
+  margin-top: 2rem;
+  width: 100%;            /* Container utama ambil lebar penuh */
 }
 
 .hero-badges {
-  /* Ubah display jadi flex agar gap berfungsi */
-  display: flex;
-  flex-wrap: wrap;       /* Agar turun baris kalau di HP */
-  justify-content: center;
-  gap: 1rem;
+  display: flex;          /* Gunakan Flexbox */
+  justify-content: center;/* KUNCI: Paksa isi (badges) kumpul di tengah axis horizontal */
+  align-items: center;
+  flex-wrap: wrap;        /* Agar rapi di HP */
+  gap: 1rem;              /* Jarak antar badge */
   
-  /* KUNCI SUPAYA PAS DI TENGAH: */
-  width: fit-content;    /* Bungkus wadah sesuai isi saja */
-  margin: 0 auto;        /* Taruh wadah yang sudah dibungkus itu di tengah */
+  /* PERUBAHAN UTAMA DI SINI: */
+  width: 100%;            /* Paksa wadah selebar layar (jangan fit-content) */
+  margin: 0;              /* Reset margin karena sudah pakai justify-content center */
+  padding: 0 1rem;        /* Padding pengaman agar tidak mentok pinggir di HP kecil */
 }
 
 .hero-badges span {
-  display: flex;         /* Pastikan badge itu sendiri rapi */
+  /* Pastikan badge itu sendiri rapi */
+  display: flex;
   align-items: center;
+  justify-content: center;
   background: rgba(255, 255, 255, 0.9);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
@@ -223,7 +228,7 @@ ul {
   color: #4a4a4a;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   border: 1px solid rgba(255,255,255,0.8);
-  white-space: nowrap;
+  white-space: nowrap;    /* Teks dilarang turun baris */
 }
 /* === SELESAI PERBAIKAN BADGES === */
 
