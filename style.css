@@ -12,12 +12,12 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
+  /* BACKGROUND UTAMA: Gradasi yang lebih smooth dan estetik */
   background: linear-gradient(
     135deg,
-    #ffd6eb 0%,
-    #fef4fb 25%,
-    #f3e8ff 60%,
-    #ffffff 100%
+    #fff0f5 0%,
+    #f8f0ff 50%,
+    #e0f7fa 100%
   );
   background-attachment: fixed;
   color: #1f1f2e;
@@ -54,15 +54,19 @@ ul {
   padding: 0 1.5rem;
 }
 
-/* --- Navbar --- */
+/* --- Navbar (GRADASI + GLASS EFFECT) --- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+  
+  /* ESTETIK: Gradasi Putih ke Pink Tipis + Blur Kaca */
+  background: linear-gradient(90deg, rgba(255,255,255,0.95) 0%, rgba(255,240,245,0.9) 100%);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  
+  border-bottom: 1px solid rgba(255,255,255,0.5);
+  box-shadow: 0 4px 30px rgba(0,0,0,0.03);
   transition: all 0.3s ease;
   padding: 1.2rem 0; 
   display: flex;
@@ -71,7 +75,7 @@ ul {
 
 .navbar.scrolled {
   padding: 0.8rem 0;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 10px 30px rgba(244, 113, 185, 0.1); /* Shadow pink halus */
 }
 
 .nav-inner {
@@ -93,7 +97,7 @@ ul {
 }
 
 .logo span {
-  color: #f471b9;
+  color: #d946a6; /* Sedikit lebih gelap agar dimensi */
 }
 
 .nav-links {
@@ -106,10 +110,14 @@ ul {
 .nav-links a {
   font-weight: 600;
   font-size: 1.05rem;
-  color: #4a4a4a;
+  color: #555;
   position: relative;
   transition: color 0.3s;
   padding: 5px 0;
+}
+
+.nav-links a:hover {
+  color: #f471b9;
 }
 
 .nav-links a::after {
@@ -119,7 +127,7 @@ ul {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #f471b9;
+  background: linear-gradient(90deg, #f471b9, #ff9a9e); /* Garis bawah gradasi */
   transition: width 0.3s;
 }
 
@@ -178,7 +186,10 @@ ul {
 }
 
 .hero-text h1 span {
-  color: #f471b9;
+  /* ESTETIK: Teks Gradasi */
+  background: linear-gradient(45deg, #f471b9, #ff9a9e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .hero-text p {
@@ -190,52 +201,45 @@ ul {
   text-align: center;
 }
 
-/* === PERBAIKAN BADGES (FINAL LOCKING STRATEGY) === */
-/* --- UPDATE FIX TENGAH (PASTI PRESISI) --- */
-
+/* === FIX TENGAH BADGES (METODE FLEXBOX ABSOLUTE) === */
 .hero-center {
   display: flex;
   flex-direction: column;
-  align-items: center;    /* Pastikan tombol 'Lihat Koleksi' di tengah */
+  align-items: center;     /* Paksa anak elemen (tombol & badges) di tengah */
   justify-content: center;
-  gap: 2rem;
-  margin-top: 2rem;
-  width: 100%;            /* Container utama ambil lebar penuh */
+  width: 100%;             /* Lebar penuh */
+  margin-top: 1rem;
 }
 
 .hero-badges {
-  display: flex;          /* Gunakan Flexbox */
-  justify-content: center;/* KUNCI: Paksa isi (badges) kumpul di tengah axis horizontal */
-  align-items: center;
-  flex-wrap: wrap;        /* Agar rapi di HP */
-  gap: 1rem;              /* Jarak antar badge */
+  display: flex;           /* Flexbox aktif */
+  justify-content: center; /* KUNCI: Isi rata tengah horizontal */
+  align-items: center;     /* Isi rata tengah vertikal */
+  flex-wrap: wrap;         /* Turun baris di HP */
+  gap: 1rem;               /* Jarak antar badge */
   
-  /* PERUBAHAN UTAMA DI SINI: */
-  width: 100%;            /* Paksa wadah selebar layar (jangan fit-content) */
-  margin: 0;              /* Reset margin karena sudah pakai justify-content center */
-  padding: 0 1rem;        /* Padding pengaman agar tidak mentok pinggir di HP kecil */
+  width: 100%;             /* Pastikan wadah selebar layar induk */
+  margin-top: 2rem;        /* Jarak dari tombol */
+  padding: 0 1rem;
 }
 
 .hero-badges span {
-  /* Pastikan badge itu sendiri rapi */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 0.6rem 1.2rem;
+  background: linear-gradient(135deg, #ffffff 0%, #fff0f5 100%); /* Badge gradasi tipis */
+  padding: 0.7rem 1.4rem;
   border-radius: 50px;
-  font-size: 0.9rem;
-  color: #4a4a4a;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #555;
+  box-shadow: 0 4px 15px rgba(244, 113, 185, 0.15); /* Shadow pink pudar */
   border: 1px solid rgba(255,255,255,0.8);
-  white-space: nowrap;    /* Teks dilarang turun baris */
+  white-space: nowrap;
 }
-/* === SELESAI PERBAIKAN BADGES === */
+/* === SELESAI FIX TENGAH === */
 
-/* --- Button --- */
+/* --- Button (ESTETIK GRADASI) --- */
 .btn {
   display: inline-block;
-  padding: 12px 30px;
+  padding: 12px 35px;
   border-radius: 50px;
   font-weight: 600;
   font-size: 1rem;
@@ -244,32 +248,24 @@ ul {
   border: none;
 }
 
-/* === HILANGKAN GARIS HITAM === */
-.btn:focus, 
-button:focus {
-  outline: none; /* Matikan garis hitam */
-  /* Ganti dengan shadow pink halus */
-  box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.3); 
-}
-/* === SELESAI HILANGKAN GARIS HITAM === */
-
 .btn-primary {
-  background: #f471b9;
+  /* Tombol Gradasi Pink */
+  background: linear-gradient(45deg, #f471b9, #f78fb3);
   color: white;
   box-shadow: 0 4px 15px rgba(244, 113, 185, 0.4);
 }
 
 .btn-primary:hover {
-  background: #d946a6;
+  background: linear-gradient(45deg, #d946a6, #f471b9);
   transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(244, 113, 185, 0.5);
+  box-shadow: 0 8px 25px rgba(244, 113, 185, 0.5);
 }
 
 .btn-outline {
-  border: 1px solid #f471b9;
+  border: 2px solid #f471b9; /* Border sedikit lebih tebal */
   color: #f471b9;
   background: transparent;
-  padding: 8px 20px;
+  padding: 6px 20px;
   font-size: 0.9rem;
 }
 
@@ -278,22 +274,31 @@ button:focus {
   color: white;
 }
 
-/* --- Section --- */
+.btn:focus, button:focus {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.2); 
+}
+
+/* --- Section (GLASS CARD EFFECT) --- */
 .section {
   padding: 4rem 0;
 }
 
 .section-light {
-  background-color: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(5px);
+  /* ESTETIK: Card Transparan Bergradasi */
+  background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,245,250,0.6));
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.8);
   border-radius: 30px;
   margin: 2rem 1.5rem;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.03);
 }
 
 @media (max-width: 768px) {
   .section-light {
     margin: 0;
     border-radius: 0;
+    background: linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,245,250,0.8));
   }
 }
 
@@ -304,7 +309,10 @@ button:focus {
 
 .section-header h2 {
   font-size: 2.5rem;
-  color: #d946a6;
+  /* Judul Section Gradasi */
+  background: linear-gradient(45deg, #d946a6, #f471b9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   margin-bottom: 0.8rem;
   font-weight: 700;
 }
@@ -330,16 +338,18 @@ button:focus {
   background: white;
   border-radius: 20px;
   overflow: hidden;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  /* Shadow Estetik */
+  box-shadow: 0 10px 25px rgba(200, 200, 200, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   display: flex;
   flex-direction: column;
   height: 100%;
+  border: 1px solid rgba(255,255,255,0.5);
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(244, 113, 185, 0.15); /* Glow pink saat hover */
 }
 
 .card-image {
@@ -352,9 +362,10 @@ button:focus {
   position: relative;
 }
 
-.card-img-1 { background: #fdfbfb; }
-.card-img-2 { background: #fff0f5; }
-.card-img-3 { background: #f0fdf4; }
+/* Background Produk: Gradasi Sangat Halus */
+.card-img-1 { background: linear-gradient(to top, #fff5f9, #ffffff); }
+.card-img-2 { background: linear-gradient(to top, #f0fdf4, #ffffff); }
+.card-img-3 { background: linear-gradient(to top, #fef4fb, #ffffff); }
 
 .card-image img {
   height: 85%;
@@ -365,7 +376,7 @@ button:focus {
 }
 
 .card:hover .card-image img {
-  transform: scale(1.05);
+  transform: scale(1.08) rotate(2deg); /* Efek zoom & miring sedikit */
 }
 
 .card-body {
@@ -442,7 +453,7 @@ button:focus {
   background: white;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.5rem;
@@ -450,15 +461,17 @@ button:focus {
 
 .stat {
   text-align: center;
-  padding: 1rem;
-  background: linear-gradient(135deg, #fef4fb 0%, #fff0f5 100%);
+  padding: 1.5rem;
+  /* Card Stat Gradasi */
+  background: linear-gradient(135deg, #fffcfd 0%, #fff0f5 100%);
   border-radius: 15px;
+  border: 1px solid #ffeef5;
 }
 
 .stat-number {
   display: block;
   font-size: 2rem;
-  font-weight: 700;
+  font-weight: 800;
   color: #f471b9;
 }
 
@@ -473,7 +486,7 @@ button:focus {
   background: white;
   padding: 2rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
   max-width: 100%;
 }
 
@@ -493,18 +506,20 @@ button:focus {
 .form-group textarea {
   width: 100%;
   padding: 0.8rem 1rem;
-  border: 2px solid #e5e7eb;
-  border-radius: 10px;
+  border: 2px solid #eee;
+  background: #fdfdfd;
+  border-radius: 12px; /* Lebih bulat */
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
-  transition: border-color 0.3s;
+  transition: all 0.3s;
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: none; /* Pastikan outline mati di input juga */
+  outline: none;
   border-color: #f471b9;
-  box-shadow: 0 0 0 3px rgba(244, 113, 185, 0.2);
+  background: #fff;
+  box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.1); /* Glow pink lembut saat ngetik */
 }
 
 .btn-full {
@@ -522,7 +537,7 @@ button:focus {
 .chip {
   display: inline-block;
   padding: 0.6rem 1.5rem;
-  background: #f471b9;
+  background: linear-gradient(45deg, #f471b9, #f78fb3);
   color: white;
   border-radius: 25px;
   font-weight: 500;
@@ -531,16 +546,17 @@ button:focus {
 }
 
 .chip:hover {
-  background: #d946a6;
+  background: linear-gradient(45deg, #d946a6, #f471b9);
   transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(244, 113, 185, 0.3);
 }
 
 /* --- Footer --- */
 .footer {
-  background: #0f172a;
+  /* Footer gelap dengan sentuhan biru malam */
+  background: linear-gradient(to top, #0f172a, #1e293b);
   color: #e5e7eb;
-  padding: 2.5rem 0 1.5rem;
+  padding: 3rem 0 1.5rem;
   text-align: center;
   margin-top: auto;
 }
@@ -597,6 +613,7 @@ button:focus {
 
 .social-icon:hover .icon-circle {
   background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 15px rgba(255,255,255,0.3); /* Glow efek */
 }
 
 .icon-circle i {
@@ -637,7 +654,8 @@ button:focus {
 .product-modal {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6); /* Backdrop lebih gelap */
+  backdrop-filter: blur(5px);      /* Blur background belakang modal */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -668,7 +686,7 @@ button:focus {
   z-index: 10;
   max-height: 90vh;
   overflow-y: auto;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.3);
 }
 
 .product-modal-close {
