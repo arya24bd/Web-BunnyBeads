@@ -47,18 +47,19 @@ ul {
 }
 
 /* --- Navbar --- */
+/* --- Navbar --- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
   background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.03);
   transition: all 0.3s ease;
   
-  /* FIX UTAMA: Padding kecil untuk membuat navbar tipis */
-  padding: 0.6rem 0; 
+  /* UKURAN STANDAR: Tidak terlalu tipis, tidak tebal. Pas. */
+  padding: 1rem 0; 
   display: flex;
   align-items: center;
 }
@@ -71,12 +72,13 @@ ul {
 }
 
 .logo {
-  font-size: 1.4rem; /* Ukuran font pas, tidak terlalu besar */
+  font-size: 1.6rem; /* Ukuran font logo dikembalikan normal */
   font-weight: 800;
-  line-height: 1; /* Menghapus jarak hantu di atas/bawah teks */
-  margin: 0;      /* Hapus margin bawaan */
+  line-height: 1; 
+  margin: 0;
   display: flex;
   align-items: center;
+  letter-spacing: -0.5px;
 }
 
 .logo span {
@@ -85,18 +87,18 @@ ul {
 
 .nav-links {
   display: flex;
-  gap: 1.5rem; /* Jarak antar menu dirapatkan */
+  gap: 2rem; /* Jarak antar menu standar (tidak terlalu rapat) */
   align-items: center;
-  margin: 0;   /* Pastikan tidak ada margin */
+  margin: 0;
 }
 
 .nav-links a {
   font-weight: 500;
-  font-size: 0.9rem;
+  font-size: 1rem; /* Ukuran font menu standar (mudah dibaca) */
   color: #4a4a4a;
   position: relative;
   transition: color 0.3s;
-  padding: 0; /* Hapus padding link agar baris tidak tinggi */
+  padding: 5px 0;
 }
 
 .nav-links a::after {
@@ -104,7 +106,7 @@ ul {
   position: absolute;
   width: 0;
   height: 2px;
-  bottom: -4px;
+  bottom: 0;
   left: 0;
   background-color: #f471b9;
   transition: width 0.3s;
@@ -949,11 +951,12 @@ ul {
   }
 
   /* --- Footer --- */
+/* --- Footer Fit & Rapi --- */
 .footer {
   background: #0f172a;
   color: #e5e7eb;
-  /* FIX UTAMA: Padding kecil agar footer pendek */
-  padding: 1.5rem 0; 
+  /* PENTING: Padding 2rem buat atas bawah. Cukup lega tapi tidak boros margin. */
+  padding: 2.5rem 0 1.5rem; 
   text-align: center;
   margin-top: auto;
 }
@@ -962,8 +965,8 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Mengurangi jarak vertikal antar elemen footer */
-  gap: 1rem; 
+  /* Jarak antar elemen footer dibuat proporsional */
+  gap: 1.5rem; 
 }
 
 .social-media {
@@ -971,58 +974,66 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Jarak sangat dekat antara teks "Temukan kami" dan icon */
-  gap: 0.5rem; 
 }
 
 .social-media h3 {
-  /* Hapus margin besar bawaan browser */
-  margin: 0; 
-  font-size: 1rem;
+  /* Margin bawah judul sosmed dirapatkan agar fit dengan icon */
+  margin: 0 0 1rem 0; 
+  font-size: 1.1rem;
   font-weight: 600;
   color: #e5e7eb;
+  letter-spacing: 0.5px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 0.8rem; /* Jarak antar icon diperkecil */
+  gap: 1rem; /* Jarak antar icon standar */
   margin: 0;
 }
 
-/* Memperkecil lingkaran icon agar footer tidak kembung */
+/* Mengembalikan ukuran lingkaran icon ke standar (lebih jelas) */
 .icon-circle {
-  width: 32px;
-  height: 32px;
+  width: 45px; 
+  height: 45px;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.icon-circle:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-3px);
 }
 
 .icon-circle img {
-  width: 18px;
-  height: 18px;
+  width: 24px;
+  height: 24px;
   object-fit: contain;
 }
 
 .social-label {
-  display: none; /* Opsional: Sembunyikan label teks jika ingin super minimalis */
+  /* Teks label (Shopee, IG, dll) dimunculkan kembali tapi ukurannya pas */
+  display: block; 
+  font-size: 0.75rem;
+  margin-top: 5px;
+  font-weight: 500;
+  color: #ccc;
 }
 
-/* Merapikan teks copyright */
 .footer p {
-  margin: 0; /* Hapus margin paragraf */
-  font-size: 0.8rem;
+  margin: 0;
+  font-size: 0.9rem;
   color: #9ca3af;
-  line-height: 1.4;
+  margin-top: 0.5rem;
 }
 
 .footer-tagline {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #f9a8d4;
-  margin-top: 2px !important; /* Jarak super tipis */
+  margin-top: 0.2rem !important;
 }
 }
