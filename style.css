@@ -85,18 +85,20 @@ ul {
   width: 100%;
 }
 
+/* PERBAIKAN WARNA LOGO DISINI */
 .logo {
-  font-size: 1.8rem; /* Font logo lebih besar */
+  font-size: 1.8rem;
   font-weight: 800;
   line-height: 1; 
   margin: 0;
   display: flex;
   align-items: center;
   letter-spacing: -0.5px;
+  color: #f471b9; /* <--- TAMBAHKAN INI (Agar tulisan 'Bunny' jadi pink) */
 }
 
 .logo span {
-  color: #f471b9;
+  color: #f471b9; /* Ini untuk 'Beads', warnanya sudah sama */
 }
 
 .nav-links {
