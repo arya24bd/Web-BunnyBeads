@@ -12,7 +12,6 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  /* BACKGROUND BODY: Gradasi pink lembut */
   background: linear-gradient(
     135deg,
     #fff0f5 0%,
@@ -54,15 +53,12 @@ ul {
   padding: 0 1.5rem;
 }
 
-/* --- Navbar (FIX GRADASI) --- */
+/* --- Navbar (Gradasi Jelas) --- */
 .navbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  
-  /* PERUBAHAN: Warna Gradasi dibuat lebih terlihat (Putih ke Pink Jelas) */
   background: linear-gradient(to right, #ffffff 0%, #ffe4f2 100%);
-  
   border-bottom: 1px solid rgba(255,255,255,0.5);
   box-shadow: 0 4px 20px rgba(0,0,0,0.05);
   transition: all 0.3s ease;
@@ -73,7 +69,7 @@ ul {
 
 .navbar.scrolled {
   padding: 0.8rem 0;
-  box-shadow: 0 4px 15px rgba(244, 113, 185, 0.2); /* Shadow pink saat scroll */
+  box-shadow: 0 4px 15px rgba(244, 113, 185, 0.2);
 }
 
 .nav-inner {
@@ -198,32 +194,29 @@ ul {
   text-align: center;
 }
 
-/* === PERBAIKAN TENGAH (SUPREME FIX) === */
+/* === PERBAIKAN BADGES (METODE TEXT-ALIGN CENTER) === */
+/* Ini metode paling robust untuk memastikan elemen inline berjejer di tengah */
 .hero-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;    /* Pastikan tombol 'Lihat Koleksi' di tengah */
-  justify-content: center;
-  width: 100%;            /* Lebar penuh */
+  width: 100%;
+  text-align: center; /* Paksa semua anak inline untuk ke tengah */
   margin-top: 1rem;
 }
 
+.hero-actions {
+    margin-bottom: 2rem; /* Jarak antara tombol dan badges */
+}
+
 .hero-badges {
-  /* KUNCI: Flexbox dengan justify-content center */
-  display: flex;
-  justify-content: center; /* Memaksa anak elemen (badges) kumpul di tengah */
-  flex-wrap: wrap;         /* Agar rapi di HP */
-  gap: 1rem;               /* Jarak antar badge */
-  
-  width: 100%;             /* Pastikan container mengambil lebar penuh layar */
-  margin-top: 2rem;        /* Jarak dari tombol */
-  padding: 0 1rem;         /* Padding kiri kanan agar tidak mentok di HP */
+  display: block; /* Pastikan ini blok agar text-align induknya bekerja */
+  width: 100%;
+  padding: 0 1rem;
 }
 
 .hero-badges span {
-  display: flex;
+  display: inline-flex; /* Ubah jadi inline-flex agar bisa di-center oleh induknya */
   align-items: center;
   justify-content: center;
+  margin: 0.5rem; /* Margin seragam di sekeliling badge */
   background: rgba(255, 255, 255, 0.9);
   padding: 0.7rem 1.4rem;
   border-radius: 50px;
@@ -234,7 +227,7 @@ ul {
   border: 1px solid rgba(255,255,255,0.8);
   white-space: nowrap;
 }
-/* === SELESAI PERBAIKAN TENGAH === */
+/* === SELESAI PERBAIKAN BADGES === */
 
 
 /* --- Button --- */
@@ -250,7 +243,6 @@ ul {
 }
 
 .btn-primary {
-  /* Tombol Gradasi Pink */
   background: linear-gradient(45deg, #f471b9, #f78fb3);
   color: white;
   box-shadow: 0 4px 15px rgba(244, 113, 185, 0.4);
@@ -286,7 +278,6 @@ ul {
 }
 
 .section-light {
-  /* Card Transparan Bergradasi */
   background: linear-gradient(135deg, rgba(255,255,255,0.8), rgba(255,245,250,0.6));
   backdrop-filter: blur(10px);
   border: 1px solid rgba(255,255,255,0.8);
@@ -588,36 +579,54 @@ ul {
   transition: transform 0.3s, color 0.3s;
 }
 
-.social-icon:hover {
-  transform: translateY(-4px);
-  color: white;
-}
-
+/* === WARNA BRAND SOSIAL MEDIA === */
+/* Base Circle Style */
 .icon-circle {
-  width: 40px;
-  height: 40px;
+  width: 45px; /* Sedikit diperbesar agar lega */
+  height: 45px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: background 0.3s;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.1); /* Warna default sebelum diberi warna brand */
 }
 
-.social-icon:hover .icon-circle {
-  background: rgba(255, 255, 255, 0.25);
-  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+/* Warna Spesifik per Brand */
+.social-icon.shopee .icon-circle {
+    background: #ee4d2d; /* Shopee Orange */
 }
 
+.social-icon.tokopedia .icon-circle {
+    background: #03AC0E; /* Tokopedia Green */
+}
+
+.social-icon.tiktok .icon-circle {
+    background: #000000; /* TikTok Black */
+}
+
+.social-icon.whatsapp .icon-circle {
+    background: #25D366; /* WhatsApp Light Green */
+}
+
+.social-icon.instagram .icon-circle {
+    /* Instagram Gradient Official */
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+/* Style Icon di dalamnya (Selalu Putih) */
 .icon-circle i {
-  font-size: 1.5rem;
-  color: #e5e7eb;
-  transition: color 0.3s ease;
+  font-size: 1.6rem;
+  color: #ffffff; /* Icon selalu putih agar kontras dengan background warna */
+  transition: transform 0.3s ease;
 }
 
-.social-icon:hover .icon-circle i {
-  color: #ffffff;
+/* Efek Hover pada Icon (sedikit membesar) */
+.social-icon:hover .icon-circle {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
+/* === SELESAI WARNA BRAND === */
 
 .social-label {
   font-size: 0.75rem;
