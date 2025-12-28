@@ -190,28 +190,32 @@ ul {
   text-align: center;
 }
 
-/* === PERBAIKAN POSISI BADGES (FINAL FIX) === */
+/* === PERBAIKAN BADGES (FINAL LOCKING STRATEGY) === */
 .hero-center {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Pastikan container tombol di tengah */
-  gap: 2rem; /* Jarak lebih lega antara tombol dan badges */
+  align-items: center; 
+  justify-content: center;
+  gap: 2rem;
   margin-top: 1rem;
-  width: 100%; 
+  width: 100%;
 }
 
 .hero-badges {
-  /* Trik Ampuh: Gunakan text-align center pada container block */
-  display: block;
-  text-align: center;
-  width: 100%;
-  padding: 0 1rem; /* Padding kiri kanan agar tidak mentok di layar HP kecil */
+  /* Ubah display jadi flex agar gap berfungsi */
+  display: flex;
+  flex-wrap: wrap;       /* Agar turun baris kalau di HP */
+  justify-content: center;
+  gap: 1rem;
+  
+  /* KUNCI SUPAYA PAS DI TENGAH: */
+  width: fit-content;    /* Bungkus wadah sesuai isi saja */
+  margin: 0 auto;        /* Taruh wadah yang sudah dibungkus itu di tengah */
 }
 
 .hero-badges span {
-  /* Ubah jadi inline-block agar patuh pada text-align center induknya */
-  display: inline-block;
-  margin: 0.5rem; /* Gunakan margin untuk jarak antar badge */
+  display: flex;         /* Pastikan badge itu sendiri rapi */
+  align-items: center;
   background: rgba(255, 255, 255, 0.9);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
@@ -221,7 +225,7 @@ ul {
   border: 1px solid rgba(255,255,255,0.8);
   white-space: nowrap;
 }
-/* === END PERBAIKAN BADGES === */
+/* === SELESAI PERBAIKAN BADGES === */
 
 /* --- Button --- */
 .btn {
@@ -232,16 +236,17 @@ ul {
   font-size: 1rem;
   cursor: pointer;
   transition: 0.3s;
-  border: none; /* Pastikan tidak ada border bawaan */
+  border: none;
 }
 
-/* === PERBAIKAN GARIS HITAM TOMBOL === */
-.btn:focus {
-    outline: none; /* Hapus garis hitam default browser */
-    /* Gantinya, beri efek shadow pink halus saat diklik/dipilih */
-    box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.3); 
+/* === HILANGKAN GARIS HITAM === */
+.btn:focus, 
+button:focus {
+  outline: none; /* Matikan garis hitam */
+  /* Ganti dengan shadow pink halus */
+  box-shadow: 0 0 0 4px rgba(244, 113, 185, 0.3); 
 }
-/* === END PERBAIKAN TOMBOL === */
+/* === SELESAI HILANGKAN GARIS HITAM === */
 
 .btn-primary {
   background: #f471b9;
@@ -488,13 +493,13 @@ ul {
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   transition: border-color 0.3s;
-/* TAMBAHAN: Hapus outline di input juga saat diklik */
 }
+
 .form-group input:focus,
 .form-group textarea:focus {
-  outline: none;
+  outline: none; /* Pastikan outline mati di input juga */
   border-color: #f471b9;
-  box-shadow: 0 0 0 3px rgba(244, 113, 185, 0.2); /* Tambah shadow pink di input juga */
+  box-shadow: 0 0 0 3px rgba(244, 113, 185, 0.2);
 }
 
 .btn-full {
