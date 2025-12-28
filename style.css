@@ -237,7 +237,7 @@ ul {
 
 /* --- Section --- */
 .section {
-  padding: 5rem 0;
+  padding: 3rem 0;
 }
 
 .section-light {
@@ -246,7 +246,7 @@ ul {
 
 .section-header {
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .section-header h2 {
@@ -362,8 +362,9 @@ ul {
 .tentang-inner,
 .kontak-inner {
   display: flex;
-  gap: 3rem;
+  gap: 2rem;
   flex-wrap: wrap;
+  align-items: flex-start;
 }
 
 .tentang-text,
@@ -374,18 +375,18 @@ ul {
 
 .tentang-text h2,
 .kontak-text h2 {
-  font-size: 2.2rem;
+  font-size: 2rem;
   color: #d946a6;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
   font-weight: 700;
 }
 
 .tentang-text p,
 .kontak-text p {
-  margin-bottom: 1.2rem;
+  margin-bottom: 1rem;
   color: #555;
-  line-height: 1.8;
+  line-height: 1.6 ;
   text-align: left;
 }
 
@@ -434,30 +435,31 @@ ul {
 .kontak-form {
   flex: 1;
   background: white;
-  padding: 2rem;
+  padding: 1.5rem;
   border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
   max-width: 100%;
 }
 
 .form-group {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
   width: 100%;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.3rem;
   font-weight: 500;
   color: #4a4a4a;
+  font-size: 0.9rem;
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.6rem 1rem;
   border: 2px solid #e5e7eb;
-  border-radius: 10px;
+  border-radius: 8px;
   font-family: "Poppins", sans-serif;
   font-size: 1rem;
   transition: border-color 0.3s;
@@ -471,7 +473,7 @@ ul {
 
 .form-group textarea {
   resize: vertical;
-  min-height: 120px;
+  min-height: 100px;
 }
 
 .btn-full {
@@ -481,8 +483,8 @@ ul {
 
 .contact-chips {
   display: flex;
-  gap: 1rem;
-  margin-top: 1.5rem;
+  gap: 0.8rem;
+  margin-top: 1rem;
   flex-wrap: wrap;
 }
 
